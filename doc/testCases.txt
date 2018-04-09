@@ -50,6 +50,11 @@ list(P,[],[]).
 list(P,[],[]).
 list(P,[],[]).
 
+While
+while_command(K, ['So', 'long', 'as', 'TRUE', 'please', 'do', 'Assign', 'the', 'boolean', 'a', 'to', 'the', 'value', 'of', 'TRUE', 'thank', 'you', 'for', 'your', 'iterations'], []).
+
+
+
 
 Program
 
