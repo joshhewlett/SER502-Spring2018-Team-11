@@ -13,3 +13,5 @@ Josh Hewlett:
 Paul Horton:
 • Assisted in collective development of language Syntax.
 • Assisted in collective effort of Milestone 2 write-up.
+• Created template for executable prolog files via shell script
+• Assisted in effort to create tokenizer
