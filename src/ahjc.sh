@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# Absolute path of this script
+SCRIPTPATH=$( dirname $(realpath -s $0))
+
+# Color codes for better logging
+RED='\033[0;31m'
+BLUE='\033[0;34m'
+YELLOW='\033[1;33m'
+GREEN='\033[1;32m'
+NC='\033[0m'
 
 # Global variables
 dir='./ahjc/'
@@ -7,6 +16,7 @@ file=''
 betterParsePrefix='betterParse_'
 keepDirFlag=false
 verboseFlag=true ### True by default for now
+
 
 # Get flags/arguments
 while getopts 'kvhd:f:' flag; do
@@ -16,19 +26,20 @@ while getopts 'kvhd:f:' flag; do
         k) keepDirFlag=true;; # Keep dump directory flag
         v) verboseFlag=true;; # Verbose - Log throughout script
         h) echo ""
-            echo "AH-J Compiler"
-            echo "Team 11"
+            echo -e "${YELLOW}AH-J Compiler${NC}"
+            echo -e "${YELLOW}Team 11${NC}"
             echo ""
             echo "Options: "
             echo "-h        Show help"
-            echo "-f        File to compile (must be .ahj file)"
-            echo "-d        Directory to dump generated files"
+            echo -e "-f        ${RED}REQUIRED${NC} File to compile (must be .ahj file)"
+            echo "-d        Directory to dump generated files (./ahjc by default)"
             echo "-k=FLAG   Keep generated files"
             echo "-v=FLAG   Show logs"
             echo ""
             exit 0
             ;;
-        *) error "Unexpected option ${flag}"
+        *) error 
+            echo -e "${RED}Unexpected option ${flag}${NC}"
             exit 0
             ;;
     esac
@@ -36,7 +47,7 @@ done
 
 # If .ahj file not provided, print error and exit
 if [ "$file" = '' ] || [ ! ${file##*.} = 'ahj' ]; then
-    echo "ERROR: Must provide .ahj file to compile"
+    echo -e "${RED}ERROR:${NC} Must provide .ahj file to compile"
     echo "See HELP (-h) for usage"
     exit 0
 fi
@@ -49,10 +60,9 @@ betterParseFile=$betterParsePrefix$file
 # Logs
 if [ "$verboseFlag" = true ] ; then
     echo ""
-    echo "Tokenizing file: $file"
-    echo "Converting '$file' to '$betterParseFile'"
-    echo "Dumping '$betterParseFile' to '$dir'"
-    echo ""
+    echo -e "${YELLOW}Input file:${NC} $file"
+    echo -e "${YELLOW}Converting${NC} '$file' ${YELLOW}to${NC} '$betterParseFile'"
+    echo -e "${YELLOW}Dumping${NC} '$betterParseFile' ${YELLOW}to${NC} '$dir'"
 fi
 
 # Remove tmp directory if exists
@@ -62,7 +72,7 @@ fi
 
 # Create directory and file
 mkdir $dir
-touch $betterParseFile
+touch $dir$betterParseFile
 
 # Read from argument file and replace all occurences of '.' with ' . '
 while IFS='' read -r line || [[ -n "$line" ]]; do
@@ -71,15 +81,22 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
 
 done < "$file"
 
-# Parse and wait until process is finished
-# TODO pass verbose flag into prolog for logging as well
-swipl -s template.pl $dir$betterParseFile &
-wait $!
-
+# Logs
 if [ "$verboseFlag" = true ] ; then
     echo ""
-    echo "Finished creating tokens"
+    echo -e "${YELLOW}Tokenizing $betterParseFile...${NC}"
+fi
+
+# Tokenize $betterParseFile and dump to $tokensFile
+tokensFile=$dir"tokens.ahjt"
+swipl -s $SCRIPTPATH/template.pl $dir$betterParseFile > $tokensFile
+
+# Logs
+if [ "$verboseFlag" = true ] ; then
     echo ""
+    echo -e "${GREEN}Successfully created tokens${NC}"
+    echo -e "\n${YELLOW}List of tokens: ${NC}"
+    cat $tokensFile
 fi
 
 #Interpret
@@ -89,5 +106,4 @@ fi
 # Delete if not.
 if [ $keepDirFlag = false ] ; then
     rm -R $dir
-    rm ./$betterParseFile
 fi

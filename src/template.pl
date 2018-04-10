@@ -10,15 +10,10 @@ main :-
 	% Get the arguments passed from command line
 	current_prolog_flag(argv,[Arg1|_]),
 
-	% User logs for clarity
-	write('Tokenizing program...'),
-	write('\n'),
-	format("Parsing file ~w \n",Arg1),
-	% Parsing code goes here
-
+	% Create tokens from file passed through Argv
 	phrase_from_file(tokens(Ls), Arg1),
 
-	write('\nParsed tokens: '),
+	% Print tokens
 	write(Ls),
 	% Ends the execution
 	halt.
