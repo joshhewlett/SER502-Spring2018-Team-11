@@ -12,9 +12,12 @@ Cecilia LaPlace:
 • Creating sample programs
 
 • Assisted in collective effort of Milestone 2 write-up.
+
 Josh Hewlett:
 • Assisted in collective development of language Syntax.
 • Assisted in collective effort of Milestone 2 write-up.
+• Created compiler bash script
+• Helped create parser.pl for tokenizing compilation file
 
 Paul Horton:
 • Assisted in collective development of language Syntax.
