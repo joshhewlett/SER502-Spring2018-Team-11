@@ -6,7 +6,7 @@ dir='./ahjc/'
 file=''
 betterParsePrefix='betterParse_'
 keepDirFlag=false
-verboseFlag=false
+verboseFlag=true ### True by default for now
 
 # Get flags/arguments
 while getopts 'kvhd:f:' flag; do
@@ -21,7 +21,7 @@ while getopts 'kvhd:f:' flag; do
             echo ""
             echo "Options: "
             echo "-h        Show help"
-            echo "-f        File to compile"
+            echo "-f        File to compile (must be .ahj file)"
             echo "-d        Directory to dump generated files"
             echo "-k=FLAG   Keep generated files"
             echo "-v=FLAG   Show logs"
@@ -34,10 +34,10 @@ while getopts 'kvhd:f:' flag; do
     esac
 done
 
-# If file not provided, print error and exit
-if [ "$file" = '' ] ; then
-    echo "ERROR: Must provide file to compile"
-    echo "See HELP (-h) for use"
+# If .ahj file not provided, print error and exit
+if [ "$file" = '' ] || [ ! ${file##*.} = 'ahj' ]; then
+    echo "ERROR: Must provide .ahj file to compile"
+    echo "See HELP (-h) for usage"
     exit 0
 fi
 
@@ -72,7 +72,8 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
 done < "$file"
 
 # Parse and wait until process is finished
-swipl -s template.pl $dir$betterParseFile $ &
+# TODO pass verbose flag into prolog for logging as well
+swipl -s template.pl $dir$betterParseFile &
 wait $!
 
 if [ "$verboseFlag" = true ] ; then
