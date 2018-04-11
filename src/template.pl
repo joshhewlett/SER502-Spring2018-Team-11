@@ -11,10 +11,14 @@ main :-
 	current_prolog_flag(argv,[Arg1|_]),
 
 	% Create tokens from file passed through Argv
-	phrase_from_file(tokens(Ls), Arg1),
+	phrase_from_file(tokens(Tokens), Arg1),
+
+	% Get ASCII
+	convert_to_ascii(Tokens, [], AsciiL),
+	reverse_list_of_lists(AsciiL, [], CorrectAscii),
 
 	% Print tokens
-	write(Ls),
+	write(CorrectAscii),
 	% Ends the execution
 	halt.
 
@@ -29,3 +33,26 @@ eos([], []).
 splitToken([]) --> ( "\n" ; call(eos) ), !.
 splitToken([]) --> ( " " ; call(eos) ), !.
 splitToken([L|Ls]) --> [L], splitToken(Ls).
+
+% Convert a list of lists to ASCII
+convert_to_ascii([], Result, Result).
+convert_to_ascii([H|T], ResultSoFar, Result) :-
+	get_ascii(H, [], Word),
+	convert_to_ascii(T, [Word|ResultSoFar], Result).
+
+% Convert a list to ASCII
+get_ascii([], Result, Result).
+get_ascii([H|T], ResultSoFar, Result) :-
+	char_code(Char, H),
+	get_ascii(T, [Char|ResultSoFar], Result).
+
+% Reverse a list of lists
+reverse_list_of_lists([], Result, Result).
+reverse_list_of_lists([H|T], ResultSoFar, Result) :-
+	reverse_list(H, [], Word),
+	reverse_list_of_lists(T, [Word|ResultSoFar], Result).
+
+% Reverse a list of lists
+reverse_list([], Result, Result).
+reverse_list([H|T], ResultSoFar, Result) :-
+	reverse_list(T, [H|ResultSoFar], Result).

@@ -62,15 +62,15 @@ boolean(t_exp(EXP)) --> ['NOT'], exp(EXP).
 boolean(t_exp(EXP)) --> exp(EXP).
 
 
-exp(plus(T,E)) --> term(T),[+],exp(E).
-exp(minus(T,E)) --> term(T),[-],exp(E).
+exp(plus(T,E)) --> term(T),['+'],exp(E).
+exp(minus(T,E)) --> term(T),['-'],exp(E).
 exp(expr(T)) --> term(T).
 exp(t_bool('TRUE')) --> ['TRUE'].
 exp(t_bool('FALSE')) --> ['FALSE'].
 
 %Precedence
-term(mult(F,T)) --> factor(F),[*],term(T).
-term(div(F,T)) --> factor(F),[/],term(T).
+term(mult(F,T)) --> factor(F),['*'],term(T).
+term(div(F,T)) --> factor(F),['/'],term(T).
 term(term(F)) --> factor(F).
 
 %Individual values
@@ -112,13 +112,13 @@ letter(y) --> ['y'].
 letter(z) --> ['z'].
 
 
-number(t_num(0)) --> [0].
-number(t_num(1)) --> [1].
-number(t_num(2)) --> [2].
-number(t_num(3)) --> [3].
-number(t_num(4)) --> [4].
-number(t_num(5)) --> [5].
-number(t_num(6)) --> [6].
-number(t_num(7)) --> [7].
-number(t_num(8)) --> [8].
-number(t_num(9)) --> [9].
+number(t_num(0)) --> ['0'].
+number(t_num(1)) --> ['1'].
+number(t_num(2)) --> ['2'].
+number(t_num(3)) --> ['3'].
+number(t_num(4)) --> ['4'].
+number(t_num(5)) --> ['5'].
+number(t_num(6)) --> ['6'].
+number(t_num(7)) --> ['7'].
+number(t_num(8)) --> ['8'].
+number(t_num(9)) --> ['9'].
