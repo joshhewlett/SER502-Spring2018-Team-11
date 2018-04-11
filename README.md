@@ -1,9 +1,9 @@
 # SER502_Group
-Group project for SER502.
+###### Group project for SER502.
+---
+### Members Consist of:
 
-Members Consist of:
-
-• Alireza Bahremand
-• Cecilia LaPlace
-• Josh Hewlett
-• Paul Horton
+* *Alireza Bahremand*
+* *Cecilia LaPlace*
+* *Josh Hewlett*
+* *Paul Horton*

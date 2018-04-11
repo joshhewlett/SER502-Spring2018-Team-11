@@ -1,25 +1,18 @@
-program(p(K)) --> ['Salutations Xiangyu, '], 
-    k(K),
-    ['Sincerely, Ajay Bansal'].
+program(t_prog(K)) --> ['Salutations', 'Xiangyu, '], 
+    list(K),
+    ['Sincerely,', 'Ajay', 'Bansal'].
 
-list(l(D, C)) --> ['Would you mind doing the following: '], 
-    d(D), 
+list(t_list(D, C)) --> ['Would', 'you', 'mind', 'doing', 'the', 'following: '], 
+    declaration(D), 
     [.],
-    c(C),
+    command(C),
     ['Thank you.'].
 
-declaration(d(I)) --> ['Create the variable '], 
+declaration(d(I)) --> ['Create', 'the', 'variable '], 
     identifier(I),
-    [.].
+    ['.'].
 
 declaration() --> declaration(_).
-
-% Incomplete:
-% Programmatic Errors
-% While Loop
-% Conditional
-% 
-
 
 command(t_command(I, B)) --> ['Assign', 'the', 'boolean'], 
     identifier(I), 
@@ -33,13 +26,15 @@ command(t_command(I, N)) --> ['Assign', 'the', 'integer'],
 
 command(t_command(C)) --> command(C).
 
+% Break apart boolean and command, consume syntax to generate tree.
 while_command(t_while(X, Y)) --> ['So', 'long', 'as'],
     boolean(X),
     ['please', 'do'],
     command(Y),
-    ['thank', 'you', 'for', 'your', 'iterations'].
-    						
+    ['thank', 'you', 'for', 'your', 'iterations'].				
     
+% Conditional check broken into Boolean evaluation and two commands.
+% Each is concumsed and further passed down syntax tree.
 if_command(t_if(X, Y, Z)) --> ['Should', 'it', 'be', 'the', 'case'],
     boolean(X),
     [',','please','do'],
@@ -48,27 +43,40 @@ if_command(t_if(X, Y, Z)) --> ['Should', 'it', 'be', 'the', 'case'],
     command(Z),
     ['that', 'is', 'all'].
 
+
 boolean(t_boolean('TRUE')) --> ['TRUE'].
 boolean(t_boolean('FALSE')) --> ['FALSE'].
-boolean(e(EXP, EXP2)) --> exp(EXP), ['EQUALS'], exp(EXP2).
-boolean(e(EXP, EXP2)) --> exp(EXP), ['AND'], exp(EXP2).
-boolean(e(EXP, EXP2)) --> exp(EXP), ['OR'], exp(EXP2).
-boolean(e(EXP)) --> ['NOT'], exp(EXP).
+boolean(t_exp(EXP, EXP2)) --> 
+    exp(EXP), 
+    ['EQUALS'], 
+    exp(EXP2).
+boolean(t_exp(EXP, EXP2)) --> 
+    exp(EXP), 
+    ['AND'], 
+    exp(EXP2).
+boolean(t_exp(EXP, EXP2)) --> 
+    exp(EXP), 
+    ['OR'], 
+    exp(EXP2).
+boolean(t_exp(EXP)) --> ['NOT'], exp(EXP).
 
-exp(mult(E)) --> mult_exp(E).
-exp(div(E)) --> div_exp(E).
-exp(add(E)) --> add_exp(E).
-exp(sub(E)) --> sub_exp(E).
-exp(num(N)) --> number(N).
-exp(num(B)) --> boolean(B).
 
-mult_exp(m(EXP, EXP2)) --> exp(EXP),[*], exp(EXP2).
-div_exp(d(EXP, EXP2)) --> exp(EXP), [/], exp(EXP2).
-add_exp(d(EXP, EXP2)) --> exp(EXP), [+], exp(EXP2).
-sub_exp(s(EXP, EXP2)) --> exp(EXP), [-], exp(EXP2).
+exp(t_exp(N)) --> number(N).
+%exp(t_bool(B)) --> boolean(B).
+exp(t_exp(E)) --> 
+    mult_exp(E);
+    div_exp(E);
+    add_exp(E);
+    sub_exp(E).
 
-identifier(id(L)) --> letter(L).
-identifier(id(I, L)) -->  identifier(I), letter(L).
+
+mult_exp(t_mult(EXP, EXP2)) --> exp(EXP),['*'], exp(EXP2).
+div_exp(t_div(EXP, EXP2)) --> exp(EXP), ['/'], exp(EXP2).
+add_exp(t_add(EXP, EXP2)) --> exp(EXP), ['+'], exp(EXP2).
+sub_exp(t_sub(EXP, EXP2)) --> exp(EXP), ['-'], exp(EXP2).
+
+identifier(t_id(L)) --> letter(L).
+identifier(t_id(I, L)) -->  identifier(I), letter(L).
 
 letter(a) --> ['a'].
 letter(b) --> ['b'].
@@ -98,14 +106,13 @@ letter(y) --> ['y'].
 letter(z) --> ['z'].
 
 
-number(0) --> [0].
-number(1) --> [1].
-number(2) --> [2].
-number(3) --> [3].
-number(4) --> [4].
-number(5) --> [5].
-number(6) --> [6].
-number(7) --> [7].
-number(8) --> [8].
-number(9) --> [9].
-
+number(t_num(0)) --> [0].
+number(t_num(1)) --> [1].
+number(t_num(2)) --> [2].
+number(t_num(3)) --> [3].
+number(t_num(4)) --> [4].
+number(t_num(5)) --> [5].
+number(t_num(6)) --> [6].
+number(t_num(7)) --> [7].
+number(t_num(8)) --> [8].
+number(t_num(9)) --> [9].
