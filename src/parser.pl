@@ -78,6 +78,9 @@ factor(factor(N)) --> number(N).
 identifier(t_id(L)) --> letter(L).
 identifier(t_id(I, L)) -->  letter(L), identifier(I).
 
+num(t_num(L)) --> number(L).
+num(t_num(I, L)) -->  number(I), num(L).
+
 
 letter(a) --> ['a'].
 letter(b) --> ['b'].
