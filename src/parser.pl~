@@ -71,8 +71,8 @@ t(div(F,T)) --> f(F),[/],t(T).
 t(term(F)) --> f(F).
 
 %Individual values
-f(factor(I)) --> identifier(I).
-f(factor(N)) --> number(N).
+f(factor(I)) --> i(I).
+f(factor(N)) --> n(N).
 
 
 identifier(t_id(L)) --> letter(L).
