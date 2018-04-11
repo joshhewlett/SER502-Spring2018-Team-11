@@ -44,8 +44,6 @@ if_command(t_if(X, Y, Z)) --> ['Should', 'it', 'be', 'the', 'case'],
     ['that', 'is', 'all'].
 
 
-boolean(t_boolean('TRUE')) --> ['TRUE'].
-boolean(t_boolean('FALSE')) --> ['FALSE'].
 boolean(t_exp(EXP, EXP2)) -->
     exp(EXP),
     ['EQUALS'],
@@ -59,24 +57,27 @@ boolean(t_exp(EXP, EXP2)) -->
     ['OR'],
     exp(EXP2).
 boolean(t_exp(EXP)) --> ['NOT'], exp(EXP).
+boolean(t_exp(EXP)) --> exp(EXP).
 
 
-exp(plus(T,E)) --> t(T),[+],exp(E).
-exp(minus(T,E)) --> t(T),[-],exp(E).
-exp(expr(T)) --> t(T).
+exp(plus(T,E)) --> term(T),[+],exp(E).
+exp(minus(T,E)) --> term(T),[-],exp(E).
+exp(expr(T)) --> term(T).
+exp(t_bool('TRUE')) --> ['TRUE'].
+exp(t_bool('FALSE')) --> ['FALSE'].
 
 %Precedence
-t(mult(F,T)) --> f(F),[*],t(T).
-t(div(F,T)) --> f(F),[/],t(T).
-t(term(F)) --> f(F).
+term(mult(F,T)) --> factor(F),[*],term(T).
+term(div(F,T)) --> factor(F),[/],term(T).
+term(term(F)) --> factor(F).
 
 %Individual values
-f(factor(I)) --> identifier(I).
-f(factor(N)) --> number(N).
-
+factor(factor(I)) --> identifier(I).
+factor(factor(N)) --> number(N).
 
 identifier(t_id(L)) --> letter(L).
-identifier(t_id(I, L)) -->  identifier(I), letter(L).
+identifier(t_id(I, L)) -->  letter(L), identifier(I).
+
 
 letter(a) --> ['a'].
 letter(b) --> ['b'].
