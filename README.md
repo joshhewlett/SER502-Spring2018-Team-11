@@ -3,8 +3,7 @@
 ---
 ### Members Consist of:
 
-
-* ***Alireza Bahremand***
+* ***Alireza Bahremand***
 * ***Cecilia LaPlace***
 * ***Josh Hewlett***
 * ***Paul Horton***
