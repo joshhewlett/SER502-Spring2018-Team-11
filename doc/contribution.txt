@@ -1,6 +1,8 @@
 Alireza Bahremand:
 • Assisted in collective development of language Syntax.
 • Assisted in collective effort of Milestone 2 write-up.
+• Worked on DCG parser for conditional and while loops. Made revisions to syntax and fixed programmatic errors.
+• Wrote additional test cases.
 
 Cecilia LaPlace:
 • Assisted in collective development of language Syntax.
@@ -10,12 +12,21 @@ Cecilia LaPlace:
 • Creating sample programs
 
 • Assisted in collective effort of Milestone 2 write-up.
+
 Josh Hewlett:
 • Assisted in collective development of language Syntax.
 • Assisted in collective effort of Milestone 2 write-up.
+• Created compiler bash script
+• Helped create parser.pl for tokenizing compilation file
 
 Paul Horton:
 • Assisted in collective development of language Syntax.
 • Assisted in collective effort of Milestone 2 write-up.
 • Created template for executable prolog files via shell script
 • Assisted in effort to create tokenizer
+
+
+#TODO:
+• Finish fixing DCG.
+• Incremental test cases.
+• Sample programs.
