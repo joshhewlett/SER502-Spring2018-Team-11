@@ -3,16 +3,16 @@ program(t_prog(K)) --> ['Salutations', 'Xiangyu, '],
     ['Sincerely,', 'Ajay', 'Bansal'].
 
 list(t_list(D, C)) --> ['Would', 'you', 'mind', 'doing', 'the', 'following: '],
-    declaration(D),
-    [.],
+    declaration(D), [.], command(C);
     command(C),
-    ['Thank you.'].
+    ['Thank', 'you.'].
 
-declaration(d(I)) --> ['Create', 'the', 'variable '],
+declaration(t_decl(I)) -->
+    ['Create', 'the', 'variable'],
     identifier(I),
     ['.'].
+declaration(d(I)) --> declaration(I).
 
-declaration() --> declaration(_).
 
 command(t_command(I, B)) --> ['Assign', 'the', 'boolean'],
     identifier(I),
@@ -24,13 +24,15 @@ command(t_command(I, N)) --> ['Assign', 'the', 'integer'],
     ['to', 'the', 'value', 'of'],
     number(N).
 
+command(t_command(N)) --> while_command(N).
+command(t_command(N)) --> if_command(N).
 command(t_command(C)) --> command(C).
 
 % Break apart boolean and command, consume syntax to generate tree.
 while_command(t_while(X, Y)) --> ['So', 'long', 'as'],
     boolean(X),
     ['please', 'do'],
-    command(Y),
+    list(Y),
     ['thank', 'you', 'for', 'your', 'iterations'].
 
 % Conditional check broken into Boolean evaluation and two commands.
@@ -38,9 +40,9 @@ while_command(t_while(X, Y)) --> ['So', 'long', 'as'],
 if_command(t_if(X, Y, Z)) --> ['Should', 'it', 'be', 'the', 'case'],
     boolean(X),
     [',','please','do'],
-    command(Y),
+    list(Y),
     ['otherwise', 'do'],
-    command(Z),
+    list(Z),
     ['that', 'is', 'all'].
 
 
