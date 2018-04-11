@@ -19,6 +19,7 @@ main :-
 
 	% Print tokens
 	write(CorrectAscii),
+
 	% Ends the execution
 	halt.
 
@@ -50,7 +51,10 @@ get_ascii([H|T], ResultSoFar, Result) :-
 reverse_list_of_lists([], Result, Result).
 reverse_list_of_lists([H|T], ResultSoFar, Result) :-
 	reverse_list(H, [], Word),
-	reverse_list_of_lists(T, [Word|ResultSoFar], Result).
+	atomics_to_string(Word, StringWord),
+	string_concat("'", StringWord, AppendString1),
+	string_concat(AppendString1, "'", AppendString2),
+	reverse_list_of_lists(T, [AppendString2|ResultSoFar], Result).
 
 % Reverse a list of lists
 reverse_list([], Result, Result).
