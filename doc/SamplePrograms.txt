@@ -1,0 +1,72 @@
+1.
+initializing variables, assigning variables
+
+Salutations Xiangyu, 
+Would you mind doing the following:
+Create the variable flag.
+Create the variable number.
+Assign the boolean flag TRUE.
+Assign the boolean flag FALSE.
+Assign the integer number 5.
+Assign the integer number 15461.
+
+Sincerely, Ajay Bansal
+
+2.
+initializing variables, assigning variables, basic arithmetic
+
+Salutations Xiangyu, 
+Would you mind doing the following:
+Create the variable number.
+Assign the integer number to the value of 1065620.
+Assign the integer number to the value of number + 516100.
+Sincerely, Ajay Bansal
+
+
+3. 
+initializing variables, if statement, basic arithmetic
+
+Salutations Xiangyu, 
+Would you mind doing the following:
+Create the variable firstvariable.
+Create the variable secondvariable.
+Assign the boolean firstvariable to the value of FALSE.
+Should it be the case firstvariable EQUALS FALSE, please do Assign the integer secondvariable to the value of 4*3+2*3 otherwise do Assign the integer secondvariable to the value of 8/4-4/2+1 that is all.
+Sincerely, Ajay Bansal
+
+4.
+initializing variables, assigning variables, while loop, basic arithmetic
+
+Salutations Xiangyu, 
+Would you mind doing the following:
+Create the variable counter.
+Assign the integer counter to the value of 5.
+So long as counter EQUALS 5 please do Assign the integer counter to the value of counter - 1 thank you for your iterations.
+Sincerely, Ajay Bansal
+
+5.
+initializing variables, assigning variables, nested commands, basic arithmetic
+
+
+Salutations Xiangyu, 
+Would you mind doing the following:
+Create the variable counter.
+Create the variable limit.
+Create the variable sum.
+Create the variable flag.
+Assign the integer counter to the value of 1.
+Assign the integer limit to the value of 100.
+Assign the integer sum to the value of 0.
+Assign the boolean flag to the value of TRUE.
+So long as the counter NOT EQUALS limit please do So long as flag, please do Assign the integer sum to the value of sum * 2 Assign the boolean flag to the value of FALSE otherwise do Assign the integer sum to the value of sum + 1
+Sincerely, Ajay Bansal
+
+
+Questions: 
+do we initialize in list? (assign the variable to the value of number) vs command
+assign the variable to the value of exp, list commands?
+add NOT EQUALS
+should we introduce a write expression? we won't be able to see an output else wise.
+Please reply with the value of blah
+I would like to see the value of blah
+etc.
