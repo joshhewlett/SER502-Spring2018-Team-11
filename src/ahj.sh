@@ -89,7 +89,7 @@ fi
 
 # Tokenize $betterParseFile and dump to $tokensFile
 tokensFile=$dir"tokens.ahjt"
-swipl -s $SCRIPTPATH/template.pl $dir$betterParseFile > $tokensFile
+swipl -s $SCRIPTPATH/tokenizer.pl $dir$betterParseFile > $tokensFile
 
 # Logs
 if [ "$verboseFlag" = true ] ; then
