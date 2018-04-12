@@ -8,30 +8,34 @@ list(t_list(D, C)) --> ['Would', 'you', 'mind', 'doing', 'the', 'following: '],
     ['Thank', 'you.'].
 
 declaration(t_decl(I)) -->
-    ['Create', 'the', 'variable'],
-    identifier(I),
-    ['.'].
-declaration(d(I)) --> declaration(I).
+    ['Create', 'the', 'variable'], identifier(I), ['.'].
 
+declaration(t_decl(I, I2)) -->     
+    ['Create', 'the', 'variable'], identifier(I), ['.'],
+    [','], declaration(I2).
 
+% Assignment of boolean expression expects a identifier var
+% and a boolean value.
 command(t_command(I, B)) --> ['Assign', 'the', 'boolean'],
     identifier(I),
     ['to', 'the', 'value', 'of'],
     boolean(B).
 
+% Integer assignment expects a var identifier along with a 
+% numerical digit to bind with variable name.
 command(t_command(I, N)) --> ['Assign', 'the', 'integer'],
     identifier(I),
     ['to', 'the', 'value', 'of'],
     number(N).
 
-command(t_command(N)) --> while_command(N).
-command(t_command(N)) --> if_command(N).
-command(t_command(C)) --> command(C).
+% Command can be comprised of a while loop, or conditional check.
+% If this fails, we are doing a evaluated assignment.
+command(t_command(N)) --> while_command(N); if_command(N).
 
 % Break apart boolean and command, consume syntax to generate tree.
 while_command(t_while(X, Y)) --> ['So', 'long', 'as'],
     boolean(X),
-    ['please', 'do'],
+    ['please'],
     list(Y),
     ['thank', 'you', 'for', 'your', 'iterations'].
 
@@ -39,9 +43,9 @@ while_command(t_while(X, Y)) --> ['So', 'long', 'as'],
 % Each is concumsed and further passed down syntax tree.
 if_command(t_if(X, Y, Z)) --> ['Should', 'it', 'be', 'the', 'case'],
     boolean(X),
-    [',','please','do'],
+    [',','please'],
     list(Y),
-    ['otherwise', 'do'],
+    ['otherwise'],
     list(Z),
     ['that', 'is', 'all'].
 
