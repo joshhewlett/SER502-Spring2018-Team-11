@@ -51,11 +51,11 @@ list(P,[],[]).
 list(P,[],[]).
 
 While
-while_command(K, ['So', 'long', 'as', 'TRUE', 'please', 'do', 'Assign', 'the', 'boolean', 'a', 'to', 'the', 'value', 'of', 'TRUE', 'thank', 'you', 'for', 'your', 'iterations'], []).
+while_command(K, ['So', 'long', 'as', 'TRUE', 'please', 'Would', 'you','mind','doing','the','following: ', 'Create', 'the', 'variable', 'g', '.', 'Assign', 'the', 'boolean', 'a', 'to', 'the', 'value', 'of', 'TRUE','Thank','you.', 'thank', 'you', 'for', 'your', 'iterations'], []).
+
 
 If
-if_command(K, ['Should', 'it', 'be', 'the', 'case', 'TRUE', ',', 'please', 'do', 'Assign', 'the', 'integer', 'a', 'to', 'the', 'value', 'of', 4, 'otherwise', 'do', 'Assign', 'the', 'integer', 'a', 'to', 'the', 'value', 'of', 5, 'that', 'is', 'all'], []).
-
+if_command(K, ['Should', 'it', 'be', 'the', 'case', 'TRUE', ',', 'please', 'Would','you','mind','doing','the','following: ', 'Create', 'the','variable', 'x', '.', 'Assign', 'the', 'integer', 'a', 'to', 'the', 'value', 'of', '4', 'Thank', 'you.', 'otherwise', 'Would', 'you', 'mind','doing','the','following: ', 'Assign', 'the', 'integer', 'a', 'to', 'the', 'value', 'of', '5', 'Thank', 'you.', 'that', 'is', 'all.'], []).
 
 Program
 
