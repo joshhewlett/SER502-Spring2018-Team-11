@@ -43,7 +43,7 @@ command(t_command(I, N)) --> ['Assign', 'the', 'integer'],
 % Should it be the case you have a command followed by
 % another command.
 command(t_command(I, N)) --> command(I), ['.'], command(N);
-    command(I), ['.'], block_command(N);.
+    command(I), ['.'], block_command(N).
 
 % Command can be comprised of a while loop, or conditional check.
 % If this fails, we are doing a evaluated assignment.
