@@ -61,16 +61,20 @@ initializing variables, assigning variables, nested commands, basic arithmetic
 
 
 Salutations Xiangyu, 
+
 Would you mind doing the following:
+
 Create the variable counter.
 Create the variable limit.
 Create the variable sum.
 Create the variable flag.
+
 Assign the integer counter to the value of 1.
 Assign the integer limit to the value of 100.
 Assign the integer sum to the value of 0.
 Assign the boolean flag to the value of TRUE.
-So long as the counter NOT EQUALS limit please
+
+So long as NOT counter EQUALS limit , please
 Would you mind doing the following:
 So long as flag, please
 Would you mind doing the following: 
