@@ -42,11 +42,15 @@ command(t_command(I, N)) --> ['Assign', 'the', 'integer'],
 
 % Should it be the case you have a command followed by
 % another command.
-command(t_command(I, N)) --> command(I), ['.'], command(N).
+command(t_command(I, N)) --> command(I), ['.'], command(N);
+    command(I), ['.'], block_command(N).
 
 % Command can be comprised of a while loop, or conditional check.
 % If this fails, we are doing a evaluated assignment.
 block_command(t_block_cmnd(N)) --> while_command(N); if_command(N).
+% Case where a command proceeds after block command.
+block_command(t_block_cmnd(N, N2)) --> while_command(N), command(N2); 
+    if_command(N), command(N2).
 
 % Break apart boolean and command, consume syntax to generate tree.
 while_command(t_while(X, Y)) --> ['So', 'long', 'as'],
