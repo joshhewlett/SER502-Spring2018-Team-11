@@ -107,11 +107,12 @@ Assign the boolean flag to the value of TRUE.
 
 So long as the NOT counter EQUALS limit please
 	Would you mind doing the following:
-	Should it be the case flag, please
+	Should it be the case flag please
 		Would you mind doing the following: 
 		Assign the integer sum to the value of sum * 2. 
 		Assign the boolean flag to the value of FALSE.
 		Thank you.
+	but should it be that NOT flag please
 	otherwise
 		Would you mind doing the following: 
 		Assign the integer sum to the value of sum + 1.
