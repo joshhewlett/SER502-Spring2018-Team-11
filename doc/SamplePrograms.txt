@@ -98,6 +98,7 @@ So long as counter EQUALS 5
 	thank you for your iterations.
 Thank you. 
 
+<<<<<<< HEAD
 Sincerely, Ajay Bansal
 
 5.
@@ -106,18 +107,28 @@ initializing variables assigning variables nested commands basic arithmetic
 
 
 Salutations Xiangyu,
+=======
+Salutations Xiangyu, 
+
+>>>>>>> 2fe125ef725d2b44d73188908108e7ef7a0d34bf
 Would you mind doing the following:
 
 Create the variable counter.
 Create the variable limit.
 Create the variable sum.
 Create the variable flag.
+
 Assign the integer counter to the value of 1.
 Assign the integer limit to the value of 100.
 Assign the integer sum to the value of 0.
 Assign the boolean flag to the value of TRUE.
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 So long as the counter NOT EQUALS limit please
+=======
+
+So long as NOT counter EQUALS limit , please
+>>>>>>> 2fe125ef725d2b44d73188908108e7ef7a0d34bf
 Would you mind doing the following:
 So long as flag, please
 Would you mind doing the following: 
