@@ -2,12 +2,12 @@ Salutations Xiangyu,
 
     Would you mind doing the following:
 
-        Create the variable flag.
-        Create the variable number.
-        Assign the boolean flag TRUE.
-        Assign the boolean flag FALSE.
-        Assign the integer number 5.
-        Assign the integer number 15461.
+        Create the variable f.
+        Create the variable n.
+        Assign the boolean f to the value of TRUE.
+        Assign the boolean f to the value of FALSE.
+        Assign the integer n to the value of 5.
+        Assign the integer n to the value of 1.
 
     Thank you.
 

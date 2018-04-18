@@ -1,61 +1,52 @@
-test(5).
-
-program(t_prog(K)) --> ['Salutations', 'Xiangyu, '],
+program(t_prog(K)) --> ['Salutations', 'Xiangyu,'],
     list(K),
     ['Sincerely,', 'Ajay', 'Bansal'].
 
-<<<<<<< Updated upstream
 % This list is for the instance in which the program is declaring variables and 
 % executing commands on them.
 list(t_list(D, C)) --> 
-    ['Would', 'you', 'mind', 'doing', 'the', 'following: '],
-    declaration(D), command(C), ['Thank', 'you.'];
-    declaration(D), block_command(C), ['Thank', 'you.'].
+    ['Would', 'you', 'mind', 'doing', 'the', 'following:'],
+    declaration(D), block_command(C), ['Thank', 'you'], ['.'];
+    ['Would', 'you', 'mind', 'doing', 'the', 'following:'],
+    declaration(D), command(C), ['.'], ['Thank', 'you'], ['.'].
 
 % This list is for the instance in which program is declaring commands with no 
 % declarations.
 list(t_list(C)) --> 
-    ['Would', 'you', 'mind', 'doing', 'the', 'following: '],
-    command(C), ['Thank', 'you.']; 
-    block_command(C), ['Thank', 'you.'].
+    ['Would', 'you', 'mind', 'doing', 'the', 'following:'],
+    block_command(C), ['.'], ['Thank', 'you'], ['.'];
+    ['Would', 'you', 'mind', 'doing', 'the', 'following:'],
+    command(C), ['.'], ['Thank', 'you'], ['.'].
+
+% Multi line declaration of variables.
+declaration(t_decl(I, I2)) -->     
+    ['Create', 'the', 'variable'], identifier(I), ['.'], declaration(I2).
 
 % Single declaration, TODO: Accomodate for multiple periods from declaration
 % to list predicates.
 declaration(t_decl(I)) -->
     ['Create', 'the', 'variable'], identifier(I), ['.'].
 
-% Multi line declaration of variables.
-declaration(t_decl(I, I2)) -->     
-    ['Create', 'the', 'variable'], identifier(I), ['.'],
-    [','], declaration(I2).
-
 % Assignment of boolean expression expects a identifier var
 % and a boolean value.
-=======
-list(t_list(D, C)) --> ['Would', 'you', 'mind', 'doing', 'the', 'following: '],
-    declaration(D),
-    [.],
-    command(C),
-    ['Thank you.'].
-
-declaration(d(I)) --> ['Create', 'the', 'variable '],
-    identifier(I),test(Test),
-    ['.'].
-
-declaration() --> declaration(_).
-
->>>>>>> Stashed changes
-command(t_command(I, B)) --> ['Assign', 'the', 'boolean'],
+command(t_command(I, B)) --> 
+    ['Assign', 'the', 'boolean'],
     identifier(I),
     ['to', 'the', 'value', 'of'],
-    boolean(B).
+    boolean(B);
+    ['Assign', 'the', 'integer'],
+    identifier(I),
+    ['to', 'the', 'value', 'of'],
+    number(B);
+    command(I), ['.'], command(B);
+    command(I), ['.'], block_command(B).
 
 % Integer assignment expects a var identifier along with a 
 % numerical digit to bind with variable name.
-command(t_command(I, N)) --> ['Assign', 'the', 'integer'],
-    identifier(I),
-    ['to', 'the', 'value', 'of'],
-    number(N).
+%command(t_command(I, N)) --> ['Assign', 'the', 'integer'],
+%    identifier(I),
+%    ['to', 'the', 'value', 'of'],
+%    number(N).
 
 % Should it be the case you have a command followed by
 % another command.
@@ -64,27 +55,28 @@ command(t_command(I, N)) --> command(I), ['.'], command(N);
 
 % Command can be comprised of a while loop, or conditional check.
 % If this fails, we are doing a evaluated assignment.
-block_command(t_block_cmnd(N)) --> while_command(N); if_command(N).
+block_command(t_block_cmnd(N, N2)) --> 
+    while_command(N), ['.'], command(N2); 
+    if_command(N), ['.'], command(N2).
 % Case where a command proceeds after block command.
-block_command(t_block_cmnd(N, N2)) --> while_command(N), command(N2); 
-    if_command(N), command(N2).
+block_command(t_block_cmnd(N)) --> while_command(N); if_command(N).
 
 % Break apart boolean and command, consume syntax to generate tree.
 while_command(t_while(X, Y)) --> ['So', 'long', 'as'],
     boolean(X),
     ['please'],
     list(Y),
-    ['thank', 'you', 'for', 'your', 'iterations'].
+    ['your', 'iterations', 'are', 'appreciated'].
 
 % Conditional check broken into Boolean evaluation and two commands.
 % Each is concumsed and further passed down syntax tree.
 if_command(t_if(X, Y, Z)) --> ['Should', 'it', 'be', 'the', 'case'],
     boolean(X),
-    [',','please'],
+    ['please'],
     list(Y),
     ['otherwise'],
     list(Z),
-    ['that', 'is', 'all.'].
+    ['that', 'is', 'all'].
 
 % Booleans are comprised of evaluating single boolean statements or expressions
 boolean(t_exp(EXP, EXP2)) -->
