@@ -10,7 +10,7 @@ Cecilia LaPlace:
 • Assisted in collective effort of Milestone 2 write-up.
 • Created DCG for parser
 • Created test cases to test DCG
-• Creating sample programs
+• Creating and revising sample programs
 • Fixed bugs with parser for identifiers, and expressions.
 
 
