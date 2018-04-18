@@ -25,3 +25,4 @@ Paul Horton:
 • Assisted in collective effort of Milestone 2 write-up.
 • Created template for executable prolog files via shell script
 • Assisted in effort to create tokenizer
+• Created parser.pl DCG for any length lowercase character identifiers and integers.

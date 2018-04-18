@@ -153,14 +153,21 @@ term(t_term(F)) --> factor(F).
 factor(t_factor(I)) --> identifier(I).
 factor(t_factor(N)) --> num(N).
 
-% Predicates defining variable names.
-% TODO: Accomodate for multi character strings.
-identifier(t_id(L)) --> letter(L).
-identifier(t_id(I, L)) -->  letter(L), identifier(I).
+% Predicate defining variable names.
+identifier(t_id(L)) --> [L], {
+    atom_chars(L, Cs),
+    length(Cs, N),
+    length(Lowers,N),
+    maplist(=(lower), Lowers),
+    maplist(char_type, Cs, Lowers)}.
 
-% TODO: Accomodate for multi digit values.
-num(t_num(L)) --> number(L).
-num(t_num(I, L)) -->  number(I), num(L).
+%Predicate defining numbers.
+num(t_num(L)) --> [L], {
+    atom_chars(L, Cs),
+    length(Cs, N),
+    length(Lowers,N),
+    maplist(=(digit), Lowers),
+    maplist(char_type, Cs, Lowers)}.
 
 letter(a) --> ['a'].
 letter(b) --> ['b'].
