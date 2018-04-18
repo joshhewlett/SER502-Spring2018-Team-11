@@ -1,52 +1,85 @@
 1.
-initializing variables, assigning variables
+initializing variables assigning variables
 
 Salutations Xiangyu, 
 Would you mind doing the following:
+
 Create the variable flag.
-Create the variable number.
+Assign the integer number 5.
 Assign the boolean flag TRUE.
 Assign the boolean flag FALSE.
-Assign the integer number 5.
 Assign the integer number 15461.
+<<<<<<< Updated upstream
 Thank you.
+=======
+
+Thank you. 
+>>>>>>> Stashed changes
 Sincerely, Ajay Bansal
 
+Sample python program
+flag
+number = 5
+flag = True
+flag = False
+number = 15461
+
 2.
-initializing variables, assigning variables, basic arithmetic
+initializing variables assigning variables basic arithmetic
 
 Salutations Xiangyu, 
 Would you mind doing the following:
+
 Create the variable number.
 Assign the integer number to the value of 1065620.
 Assign the integer number to the value of number + 516100.
+<<<<<<< Updated upstream
 Thank you.
+=======
+
+Thank you. 
+>>>>>>> Stashed changes
 Sincerely, Ajay Bansal
+
+Sample python program
+
 
 
 3. 
-initializing variables, if statement, basic arithmetic
+initializing variables if statement basic arithmetic
 
 Salutations Xiangyu, 
 Would you mind doing the following:
+
 Create the variable firstvariable.
 Create the variable secondvariable.
 Assign the boolean firstvariable to the value of FALSE.
+<<<<<<< Updated upstream
 Should it be the case firstvariable EQUALS FALSE, please 
 Would you mind doing the following:
 Assign the integer secondvariable to the value of 4*3+2*3 
 otherwise  
 Would you mind doing the following:
 Assign the integer secondvariable to the value of 8/4-4/2+1 Thank you. that is all.
+=======
+
+Should it be the case firstvariable EQUALS FALSE 
+	please do Assign the integer secondvariable to the value of 4*3+2*3 
+	otherwise do Assign the integer secondvariable to the value of 8/4-4/2+1 
+that is all.
+
+Thank you. 
+>>>>>>> Stashed changes
 Sincerely, Ajay Bansal
 
 4.
-initializing variables, assigning variables, while loop, basic arithmetic
+initializing variables assigning variables while loop basic arithmetic
 
-Salutations Xiangyu, 
+Salutations Xiangyu,
 Would you mind doing the following:
 Create the variable counter.
 Assign the integer counter to the value of 5.
+<<<<<<< Updated upstream
 So long as counter EQUALS 5 please
 Would you mind doing the following: 
 Assign the integer counter to the value of counter - 1 
@@ -58,10 +91,23 @@ Sincerely, Ajay Bansal
 THIS NEEDS REVISIONS TO FOLLOW SYNTAX.
 
 initializing variables, assigning variables, nested commands, basic arithmetic
+=======
+
+So long as counter EQUALS 5 
+	please do Assign the integer counter to the value of counter - 1 
+	thank you for your iterations.
+Thank you. 
+
+Sincerely, Ajay Bansal
+
+5.
+initializing variables assigning variables nested commands basic arithmetic
+>>>>>>> Stashed changes
 
 
-Salutations Xiangyu, 
+Salutations Xiangyu,
 Would you mind doing the following:
+
 Create the variable counter.
 Create the variable limit.
 Create the variable sum.
@@ -70,6 +116,7 @@ Assign the integer counter to the value of 1.
 Assign the integer limit to the value of 100.
 Assign the integer sum to the value of 0.
 Assign the boolean flag to the value of TRUE.
+<<<<<<< Updated upstream
 So long as the counter NOT EQUALS limit please
 Would you mind doing the following:
 So long as flag, please
@@ -79,14 +126,17 @@ Assign the boolean flag to the value of FALSE otherwise
 Would you mind doing the following: 
 Assign the integer sum to the value of sum + 1
 Thank you.
+=======
+So long as the counter NOT EQUALS limit please do Should it be the case flag 
+	please do Assign the integer sum to the value of sum * 2 Assign the boolean flag to the value of FALSE 
+	otherwise do Assign the integer sum to the value of sum + 1 that is all. 
+Thank you for your iterations.
+
+Thank you. 
+>>>>>>> Stashed changes
 Sincerely, Ajay Bansal
 
 
+
 Questions: 
-do we initialize in list? (assign the variable to the value of number) vs command
-assign the variable to the value of exp, list commands?
-add NOT EQUALS
-should we introduce a write expression? we won't be able to see an output else wise.
-Please reply with the value of blah
-I would like to see the value of blah
-etc.
+Todo: print statement

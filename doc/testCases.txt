@@ -60,6 +60,8 @@ if_command(K, ['Should', 'it', 'be', 'the', 'case', 'TRUE', ',', 'please', 'Woul
 Program
 program(K, ['Salutations', 'Xiangyu,','Would', 'you', 'mind', 'doing', 'the', 'following:','So', 'long', 'as', 'TRUE', 'please', 'Would', 'you','mind','doing','the','following:', 'Create', 'the', 'variable', 'g', '.', 'Assign', 'the', 'boolean', 'a', 'to', 'the', 'value', 'of', 'TRUE','.','Thank','you', '.', 'your', 'iterations', 'are', 'appreciated', '.', 'Assign', 'the', 'integer', 'g', 'to', 'the', 'value', 'of', '2', '.', 'Thank', 'you', '.', 'Sincerely,', 'Ajay', 'Bansal'], []).
 
-program(P,[],[]).
+
+#Sample program 1
+program(P,['Salutations', 'Xiangyu,', 'Would', 'you', 'mind', 'doing', 'the', 'following:', 'Create', 'the', 'variable', 'flag', '.', 'Assign', 'the', 'integer', 'number', '5', '.', 'Assign', 'the', 'boolean', 'flag', 'TRUE', '.', 'Assign', 'the', 'boolean', 'flag', 'FALSE', '.', 'Assign', 'the', 'integer', 'number', '15461', '.', 'Sincerely,', 'Ajay', 'Bansal'],[]).
 program(P,[],[]).
 program(P,[],[]).
