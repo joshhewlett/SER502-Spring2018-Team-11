@@ -37,7 +37,7 @@ command(t_command(I, B)) -->
     ['Assign', 'the', 'integer'],
     identifier(I),
     ['to', 'the', 'value', 'of'],
-    number(B);
+    exp(B);
     command(I), ['.'], command(B);
     command(I), ['.'], block_command(B).
 
