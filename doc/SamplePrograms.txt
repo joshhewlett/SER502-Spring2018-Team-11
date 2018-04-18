@@ -51,6 +51,7 @@ Assign the boolean first to the value of FALSE.
 Should it be the case first EQUALS FALSE please 
 Would you mind doing the following:
 Assign the integer second to the value of 4*3+2*3.
+Thank you.
 otherwise  
 Would you mind doing the following:
 Assign the integer second to the value of 8/4-4/2+1.
@@ -72,78 +73,78 @@ else:
 initializing variables assigning variables while loop basic arithmetic
 
 Salutations Xiangyu,
+
 Would you mind doing the following:
 Assign the integer counter to the value of 5.
+Thank you.
+
 So long as counter EQUALS 5 please
 Would you mind doing the following: 
-Assign the integer counter to the value of counter - 1 
+Assign the integer counter to the value of counter - 1.
 Thank you.
-thank you for your iterations.
+your iterations are appreciated.
+
+Thank you.
 Sincerely, Ajay Bansal
 
-5.
-THIS NEEDS REVISIONS TO FOLLOW SYNTAX.
+Sample python program
 
-initializing variables, assigning variables, nested commands, basic arithmetic
-=======
-
-So long as counter EQUALS 5 
-	please do Assign the integer counter to the value of counter - 1 
-	thank you for your iterations.
-Thank you. 
-
-<<<<<<< HEAD
-Sincerely, Ajay Bansal
+counter = 5
+while counter == 5:
+	counter = counter - 1
 
 5.
 initializing variables assigning variables nested commands basic arithmetic
->>>>>>> Stashed changes
 
 
 Salutations Xiangyu,
-=======
-Salutations Xiangyu, 
-
->>>>>>> 2fe125ef725d2b44d73188908108e7ef7a0d34bf
 Would you mind doing the following:
-
-Create the variable counter.
-Create the variable limit.
-Create the variable sum.
-Create the variable flag.
 
 Assign the integer counter to the value of 1.
 Assign the integer limit to the value of 100.
 Assign the integer sum to the value of 0.
 Assign the boolean flag to the value of TRUE.
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-So long as the counter NOT EQUALS limit please
-=======
 
-So long as NOT counter EQUALS limit , please
->>>>>>> 2fe125ef725d2b44d73188908108e7ef7a0d34bf
-Would you mind doing the following:
-So long as flag, please
-Would you mind doing the following: 
-Assign the integer sum to the value of sum * 2 
-Assign the boolean flag to the value of FALSE otherwise
-Would you mind doing the following: 
-Assign the integer sum to the value of sum + 1
-Thank you.
-=======
-So long as the counter NOT EQUALS limit please do Should it be the case flag 
-	please do Assign the integer sum to the value of sum * 2 Assign the boolean flag to the value of FALSE 
-	otherwise do Assign the integer sum to the value of sum + 1 that is all. 
-Thank you for your iterations.
+So long as the NOT counter EQUALS limit please
+	Would you mind doing the following:
+	Should it be the case flag, please
+		Would you mind doing the following: 
+		Assign the integer sum to the value of sum * 2. 
+		Assign the boolean flag to the value of FALSE.
+		Thank you.
+	otherwise
+		Would you mind doing the following: 
+		Assign the integer sum to the value of sum + 1.
+		Assign the boolean flag to the value of TRUE.
+		Thank you.
+	that is all.
+your iterations are appreciated.
 
 Thank you. 
->>>>>>> Stashed changes
 Sincerely, Ajay Bansal
 
 
+Sample python program
+counter = 1
+limit = 100
+sum = 0
+flag = True
+while counter != limit:
+	if flag = True:
+		sum = sum*2
+		flag = False
+	else:
+		sum = sum+1
+		flag = True
 
-Questions & Todo: 
+
+
+Questions & Todos: 
 print statement
 if - else if - else
+<, <=, >, >=
+GREATER THAN
+LESS THAN
+GREATER THAN OR EQUAL TO
+LESS THAN OR EQUAL TO
 interpeter - if var is integer and value is boolean then eval of t/f is 1/0 respectively
