@@ -77,7 +77,7 @@ touch $dir$betterParseFile
 # Read from argument file and replace all occurences of '.' with ' . '
 while IFS='' read -r line || [[ -n "$line" ]]; do
     string=${line/'.'/' . '}
-    echo $string >> $dir$betterParseFile
+    echo "$string" >> $dir$betterParseFile
 
 done < "$file"
 

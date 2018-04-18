@@ -38,8 +38,8 @@ command(t_command(I, B)) -->
     identifier(I),
     ['to', 'the', 'value', 'of'],
     exp(B);
-    command(I), ['.'], command(B);
-    command(I), ['.'], block_command(B).
+    command(I), ['.'], block_command(B);
+    command(I), ['.'], command(B).
 
 % Integer assignment expects a var identifier along with a 
 % numerical digit to bind with variable name.
