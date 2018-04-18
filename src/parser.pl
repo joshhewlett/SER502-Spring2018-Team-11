@@ -1,7 +1,10 @@
+test(5).
+
 program(t_prog(K)) --> ['Salutations', 'Xiangyu, '],
     list(K),
     ['Sincerely,', 'Ajay', 'Bansal'].
 
+<<<<<<< Updated upstream
 % This list is for the instance in which the program is declaring variables and 
 % executing commands on them.
 list(t_list(D, C)) --> 
@@ -28,6 +31,20 @@ declaration(t_decl(I, I2)) -->
 
 % Assignment of boolean expression expects a identifier var
 % and a boolean value.
+=======
+list(t_list(D, C)) --> ['Would', 'you', 'mind', 'doing', 'the', 'following: '],
+    declaration(D),
+    [.],
+    command(C),
+    ['Thank you.'].
+
+declaration(d(I)) --> ['Create', 'the', 'variable '],
+    identifier(I),test(Test),
+    ['.'].
+
+declaration() --> declaration(_).
+
+>>>>>>> Stashed changes
 command(t_command(I, B)) --> ['Assign', 'the', 'boolean'],
     identifier(I),
     ['to', 'the', 'value', 'of'],

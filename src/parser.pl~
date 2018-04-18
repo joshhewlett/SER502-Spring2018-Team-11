@@ -1,3 +1,5 @@
+test(5).
+
 program(t_prog(K)) --> ['Salutations', 'Xiangyu, '],
     list(K),
     ['Sincerely,', 'Ajay', 'Bansal'].
@@ -9,7 +11,7 @@ list(t_list(D, C)) --> ['Would', 'you', 'mind', 'doing', 'the', 'following: '],
     ['Thank you.'].
 
 declaration(d(I)) --> ['Create', 'the', 'variable '],
-    identifier(I),
+    identifier(I),test(N),
     ['.'].
 
 declaration() --> declaration(_).
@@ -77,6 +79,9 @@ factor(factor(N)) --> number(N).
 
 identifier(t_id(L)) --> letter(L).
 identifier(t_id(I, L)) -->  letter(L), identifier(I).
+
+num(t_num(L)) --> number(L).
+num(t_num(I, L)) -->  number(I), num(L).
 
 
 letter(a) --> ['a'].
