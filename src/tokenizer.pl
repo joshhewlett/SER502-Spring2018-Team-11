@@ -49,6 +49,8 @@ get_ascii([H|T], ResultSoFar, Result) :-
 
 % Reverse a list of lists
 reverse_list_of_lists([], Result, Result).
+reverse_list_of_lists([[]|T], ResultSoFar, Result) :-
+	reverse_list_of_lists(T, ResultSoFar, Result).
 reverse_list_of_lists([H|T], ResultSoFar, Result) :-
 	reverse_list(H, [], Word),
 	atomics_to_string(Word, StringWord),
