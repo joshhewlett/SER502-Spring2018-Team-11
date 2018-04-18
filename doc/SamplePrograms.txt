@@ -9,12 +9,7 @@ Assign the integer number 5.
 Assign the boolean flag TRUE.
 Assign the boolean flag FALSE.
 Assign the integer number 15461.
-<<<<<<< Updated upstream
-Thank you.
-=======
 
-Thank you. 
->>>>>>> Stashed changes
 Sincerely, Ajay Bansal
 
 Sample python program
@@ -33,12 +28,7 @@ Would you mind doing the following:
 Create the variable number.
 Assign the integer number to the value of 1065620.
 Assign the integer number to the value of number + 516100.
-<<<<<<< Updated upstream
-Thank you.
-=======
 
-Thank you. 
->>>>>>> Stashed changes
 Sincerely, Ajay Bansal
 
 Sample python program
