@@ -1,5 +1,5 @@
 1.
-initializing variables assigning variables
+declaring variables initializing variables assigning variables
 
 Salutations Xiangyu, 
 Would you mind doing the following:
@@ -9,6 +9,8 @@ Assign the integer number 5.
 Assign the boolean flag TRUE.
 Assign the boolean flag FALSE.
 Assign the integer number 15461.
+
+Thank you.
 
 Sincerely, Ajay Bansal
 
@@ -25,14 +27,16 @@ initializing variables assigning variables basic arithmetic
 Salutations Xiangyu, 
 Would you mind doing the following:
 
-Create the variable number.
 Assign the integer number to the value of 1065620.
 Assign the integer number to the value of number + 516100.
+
+Thank you.
 
 Sincerely, Ajay Bansal
 
 Sample python program
-
+number = 1065620
+number = number + 516100
 
 
 3. 
@@ -41,16 +45,15 @@ initializing variables if statement basic arithmetic
 Salutations Xiangyu, 
 Would you mind doing the following:
 
-Create the variable firstvariable.
-Create the variable secondvariable.
-Assign the boolean firstvariable to the value of FALSE.
-<<<<<<< Updated upstream
-Should it be the case firstvariable EQUALS FALSE, please 
+Create the variable second.
+Assign the boolean first to the value of FALSE.
+
+Should it be the case first EQUALS FALSE please 
 Would you mind doing the following:
-Assign the integer secondvariable to the value of 4*3+2*3 
+Assign the integer second to the value of 4*3+2*3 
 otherwise  
 Would you mind doing the following:
-Assign the integer secondvariable to the value of 8/4-4/2+1 Thank you. that is all.
+Assign the integer second to the value of 8/4-4/2+1 Thank you. that is all.
 =======
 
 Should it be the case firstvariable EQUALS FALSE 
@@ -59,17 +62,22 @@ Should it be the case firstvariable EQUALS FALSE
 that is all.
 
 Thank you. 
->>>>>>> Stashed changes
 Sincerely, Ajay Bansal
+
+Sample python program
+second
+first = False
+if first == False:
+	second = 4*3+2*3
+else:
+	second = 8/4-4/2+1
 
 4.
 initializing variables assigning variables while loop basic arithmetic
 
 Salutations Xiangyu,
 Would you mind doing the following:
-Create the variable counter.
 Assign the integer counter to the value of 5.
-<<<<<<< Updated upstream
 So long as counter EQUALS 5 please
 Would you mind doing the following: 
 Assign the integer counter to the value of counter - 1 
@@ -139,5 +147,7 @@ Sincerely, Ajay Bansal
 
 
 
-Questions: 
-Todo: print statement
+Questions & Todo: 
+print statement
+if - else if - else
+interpeter - if var is integer and value is boolean then eval of t/f is 1/0 respectively
