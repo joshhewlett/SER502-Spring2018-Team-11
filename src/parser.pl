@@ -41,13 +41,6 @@ command(t_command(I, B)) -->
     command(I), ['.'], block_command(B);
     command(I), ['.'], command(B).
 
-% Integer assignment expects a var identifier along with a
-% numerical digit to bind with variable name.
-%command(t_command(I, N)) --> ['Assign', 'the', 'integer'],
-%    identifier(I),
-%    ['to', 'the', 'value', 'of'],
-%    number(N).
-
 % Should it be the case you have a command followed by
 % another command.
 command(t_command(I, N)) --> command(I), ['.'], command(N);
@@ -63,11 +56,11 @@ command(t_command(I, N)) --> command(I), ['.'], command(N);
 
 % Command can be comprised of a while loop, or conditional check.
 % If this fails, we are doing a evaluated assignment.
+% Case where a command proceeds after block command.
+block_command(t_block_cmnd(N)) --> while_command(N); if_command(N).
 block_command(t_block_cmnd(N, N2)) -->
     while_command(N), ['.'], command(N2);
     if_command(N), ['.'], command(N2).
-% Case where a command proceeds after block command.
-block_command(t_block_cmnd(N)) --> while_command(N); if_command(N).
 
 % Break apart boolean and command, consume syntax to generate tree.
 while_command(t_while(X, Y)) --> ['So', 'long', 'as'],
