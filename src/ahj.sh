@@ -1,14 +1,21 @@
 #!/bin/bash
 
-# Absolute path of this script
-SCRIPTPATH=$( dirname $(realpath -s $0))
-
 # Color codes for better logging
 RED='\033[0;31m'
 BLUE='\033[0;34m'
 YELLOW='\033[1;33m'
 GREEN='\033[1;32m'
 NC='\033[0m'
+
+# Absolute path of this script
+# SCRIPTPATH=$( dirname $(realpath -s $0))
+SCRIPTPATH=$AHJ_HOME
+echo "\$AHJ_HOME=$SCRIPTPATH"
+if [ ! -f $SCRIPTPATH/tokenizer.pl ]; then 
+    echo -e "${RED}\$AHJ_HOME path variable not set correctly!${NC}"
+    echo "Please make sure to set \$AHJ_HOME to full path of the /src directory of this project."
+    exit 1
+fi
 
 # Global variables
 dir='./ahjc/'
