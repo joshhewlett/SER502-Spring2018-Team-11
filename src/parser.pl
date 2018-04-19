@@ -37,14 +37,25 @@ command(t_command(I, B)) -->
     ['Assign', 'the', 'integer'],
     identifier(I),
     ['to', 'the', 'value', 'of'],
-    exp(B);
-    command(I), ['.'], block_command(B);
-    command(I), ['.'], command(B).
-
-% Should it be the case you have a command followed by
-% another command.
-command(t_command(I, N)) --> command(I), ['.'], command(N);
-    command(I), ['.'], block_command(N).
+    exp(B).
+    
+command(t_command(C, D, E)) -->
+    ['Assign', 'the', 'boolean'],
+    identifier(C),
+    ['to', 'the', 'value', 'of'],
+    boolean(D), ['.'], block_command(E);
+    ['Assign', 'the', 'integer'],
+    identifier(C),
+    ['to', 'the', 'value', 'of'],
+    exp(D), ['.'], block_command(E);
+    ['Assign', 'the', 'boolean'],
+    identifier(C),
+    ['to', 'the', 'value', 'of'],
+    boolean(D), ['.'], command(E);
+    ['Assign', 'the', 'integer'],
+    identifier(C),
+    ['to', 'the', 'value', 'of'],
+    exp(D), ['.'], command(E).
 
 %Print command + assoc. print breakdown
 % command(t_command(V)) --> ['Please', 'reply', 'with',
