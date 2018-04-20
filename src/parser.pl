@@ -29,6 +29,10 @@ declaration(t_decl(I)) -->
 
 % Assignment of boolean expression expects a identifier var
 % and a boolean value.
+% %Print command + assoc. print breakdown
+command(t_command(V)) --> ['Please', 'reply', 'with',
+ 'the', 'value', 'of'], print(V).
+
 command(t_command(I, B)) -->
     ['Assign', 'the', 'boolean'],
     identifier(I),
@@ -37,7 +41,9 @@ command(t_command(I, B)) -->
     ['Assign', 'the', 'integer'],
     identifier(I),
     ['to', 'the', 'value', 'of'],
-    exp(B).
+    exp(B);
+    ['Please', 'reply', 'with', 'the', 'value', 'of'],
+    print(I), ['.'], command(B).
     
 command(t_command(C, D, E)) -->
     ['Assign', 'the', 'boolean'],
@@ -57,11 +63,7 @@ command(t_command(C, D, E)) -->
     ['to', 'the', 'value', 'of'],
     exp(D), ['.'], command(E).
 
-%Print command + assoc. print breakdown
-% command(t_command(V)) --> ['Please', 'reply', 'with',
-% 'the', 'value', 'of'], print(V),['.'].
-%print(t_print(V)) -->
-% identifier(V); boolean(V);number(N).
+print(t_print(V)) --> identifier(V).
 
 
 
