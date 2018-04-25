@@ -64,10 +64,13 @@ program(K, ['Salutations', 'Xiangyu,','Would', 'you', 'mind', 'doing', 'the', 'f
 #NOTE: the program may break on the variable names and/or numbers so don't forget to fix them in the program
 
 #Sample program 1
-program(P,['Salutations', 'Xiangyu,', 'Would', 'you', 'mind', 'doing', 'the', 'following:', 'Create', 'the', 'variable', 'flag', '.', 'Assign', 'the', 'integer', 'number', '5', '.', 'Assign', 'the', 'boolean', 'flag', 'TRUE', '.', 'Assign', 'the', 'boolean', 'flag', 'FALSE', '.', 'Assign', 'the', 'integer', 'number', '15461', '.',
+program(P,['Salutations', 'Xiangyu,', 'Would', 'you', 'mind', 'doing', 'the', 'following:', 'Create', 'the', 'variable', 'flag', '.', 'Assign', 'the', 'integer', 'number', 'to','the','value', 'of', '5', '.', 'Assign', 'the', 'boolean', 'flag', 'to','the','value', 'of', 'TRUE', '.', 'Assign', 'the', 'boolean', 'flag', 'to','the','value', 'of', 'FALSE', '.', 'Assign', 'the', 'integer', 'number','to','the','value', 'of', '15461', '.',
 'Thank', 'you', '.', 'Sincerely,', 'Ajay', 'Bansal'],[]).
 
 #Sample program 2
 program(P,['Salutations', 'Xiangyu,', 'Would', 'you', 'mind', 'doing', 'the', 'following:', 'Assign', 'the', 'integer', 'number', 'to', 'the', 'value', 'of', '1065620', '.', 'Assign', 'the', 'integer', 'number', 'to', 'the', 'value', 'of', 'number', '+', '516100', '.', 'Thank', 'you', '.', 'Sincerely,', 'Ajay', 'Bansal'],[]).
 
 program(P,[],[]).
+
+INTERPRETER:
+interpreter(t_prog(t_list(t_decl(t_id(flag)), t_command(t_id(number), t_expr(t_term(t_factor(t_num('5')))), t_command(t_id(flag), t_exp(t_bool_true('TRUE')))))), [])
