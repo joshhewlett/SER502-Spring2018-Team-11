@@ -92,20 +92,20 @@ done < "$file"
 if [ "$verboseFlag" = true ] ; then
     echo ""
     echo -e "${YELLOW}Tokenizing $betterParseFile...${NC}"
+    echo -e "${YELLOW}Parsing tokens...${NC}"
 fi
 
 # Tokenize $betterParseFile and dump to $tokensFile
-tokensFile=$dir"tokens.ahjt"
-TOKENS=$(swipl -s $SCRIPTPATH/tokenizer.pl $dir$betterParseFile)
-echo $TOKENS > $tokensFile
-echo $TOKENS
+parseTreeFile=$dir"parseTree.ahjt"
+PARSE_TREE=$(swipl -s $SCRIPTPATH/parser.pl $dir$betterParseFile)
+echo $PARSE_TREE > $parseTreeFile
 
 # Logs
 if [ "$verboseFlag" = true ] ; then
     echo ""
-    echo -e "${GREEN}Successfully created tokens${NC}"
-    echo -e "\n${YELLOW}List of tokens: ${NC}"
-    cat $tokensFile
+    echo -e "${GREEN}Successfully parsed program${NC}"
+    echo -e "\n${YELLOW}Parse tree: ${NC}"
+    cat $parseTreeFile
 fi
 
 #Interpret
