@@ -1,1 +1,0 @@
-t_prog(t_list(t_decl(t_id(f),t_decl(t_id(n))),t_command(t_id(f),t_exp(t_bool_true(TRUE)),t_command(t_id(f),t_exp(t_bool_false(FALSE)),t_command(t_id(n),t_expr(t_term(t_factor(t_num(5)))),t_command(t_id(n),t_expr(t_term(t_factor(t_num(1))))))))))
