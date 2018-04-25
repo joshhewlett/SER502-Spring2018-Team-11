@@ -12,6 +12,7 @@ main :-
 
 	% Create tokens from file passed through Argv
 	phrase_from_file(tokens(Tokens), Arg1),
+	write(Tokens),
 
 	% Get ASCII
 	convert_to_ascii(Tokens, [], AsciiL),
