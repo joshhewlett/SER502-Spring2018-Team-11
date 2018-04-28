@@ -86,28 +86,48 @@ eval_if_command(t_if(X, Y, Z),Env,FinalEnv) :-
     eval_list(Z,Env,FinalEnv).
     
 % == BOOL eval =======================
+% == BOOL eval =======================
 eval_boolean(t_exp_eq(EXP, EXP2),Env, Result) :-
     eval_exp(EXP,Env, RExp1),
     eval_exp(EXP2,Env, RExp2),
-    Result is (RExp1 =:= RExp2).
-
+    bool_eq(RExp1,RExp2,Result). 
 % && BOOL eval
 eval_boolean(t_exp_and(EXP, EXP2),Env, Result) :-
     eval_exp(EXP,Env, RExp1),
     eval_exp(EXP2,Env, RExp2),
-    Result is RExp1* RExp2.
+    bool_and(RExp1,RExp2,Result).
 
 % || BOOL eval
 eval_boolean(t_exp_or(EXP, EXP2),Env, Result) :-
     eval_exp(EXP,Env, RExp1),
     eval_exp(EXP2,Env, RExp2),
-    Result is RExp1+ RExp2.
+    bool_or(RExp1,RExp2,Result).
 
 % !(bool) BOOL eval
 eval_boolean(t_exp_not(EXP, EXP2),Env, Result) :-
     eval_exp(EXP,Env, RExp1),
     eval_exp(EXP2,Env, RExp2),
-    Result is NOT (RExp1 =:= RExp2).
+    bool_neq(RExp1,RExp2,Result).
+
+eval_boolean(t_exp(T),Env,Result):-
+    eval_exp(T,Env,Result).
+
+bool_eq(Boo,Boo,1).
+bool_eq(Boo1,Boo2,0) :-
+    Boo1 =\= Boo2.
+
+bool_neq(Boo1,Boo2,1) :-
+    Boo1 =\= Boo2.
+bool_neq(Boo1,Boo2,0) :-
+    Boo1 == Boo2.
+
+bool_and(1,1,1).
+bool_and(0,_,0).
+bool_and(_,0,0).
+
+bool_or(1,_,1).
+bool_or(_,1,1).
+bool_or(0,0,0).
 
 
 % x + y              
@@ -123,8 +143,8 @@ eval_exp(t_minus(T,E),Env,Result) :-
 
 eval_exp(t_expr(T),Env,Result) :- eval_term(T,Env,Result).
 
-eval_exp(t_bool_true(_),_,true).
-eval_exp(t_bool_false(_),_,false).
+eval_exp(t_bool_true(_),_,1).
+eval_exp(t_bool_false(_),_,0).
 
 %Precedence for arithmetic operations.
 % x * y
@@ -149,8 +169,9 @@ eval_factor(t_factor(I),Env,Result) :-
 
 eval_identifier(t_id(L),L).
 
-eval_num(t_num(N),N).
-
+eval_num(t_num(N),Result):-
+    atom_number(N,Result).
+    
 % Predicate takes a 'x' value to find in Env
 % once matched, returns the value of the
 % identifier variable via tuple pair (Id, Val).
