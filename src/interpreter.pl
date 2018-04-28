@@ -175,16 +175,23 @@ eval_num(t_num(N),Result):-
 % Predicate takes a 'x' value to find in Env
 % once matched, returns the value of the
 % identifier variable via tuple pair (Id, Val).
-lookup(Search, [(Search,Val) | _], Val).
-lookup(Search, [_|Env], Val) :- lookup(Search, Env, Val).
+lookup(Search, Env, Val) :- member((Search, Val), Env).
 
 % Predicate finds value w/i Env1, updates the value in Env2
 % If value doesn't exist in Env1, create it in Env2.
 % Continue searching list if Env Heads match until value found
 % is evident across X, Env1, Env2
-update(Search, Val, [], [ (Search,Val) ]).
-update(Search, Val, [(Search, _)|Env1], [(Search,Val)|Env1]).
-update(Search, Val, [H|Env1], [H|Env2]) :- update(Search, Val, Env1, Env2).
+update(Search, Val, Env, Env2) :-
+    member((Search, _), Env),
+    updateOld(Search,Val,Env,Env2).
+
+update(Search,Val,Env,Env2) :-
+    not(member((Search, _), Env)),
+    append([(Search,Val)],Env,Env2).
+
+updateOld(Search, Val, [(Search, _)|Env1], [(Search,Val)|Env1]).
+updateOld(Search, Val, [H|Env1], [H|Env2]) :- updateOld(Search, Val, Env1, Env2).
+
 
 interpreter(PTokens, FinalEnv) :-
     eval_prog(PTokens, Output, FinalEnv),
