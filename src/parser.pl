@@ -186,15 +186,15 @@ if_command(t_if(X, Y, Z)) --> ["Should", "it", "be", "the", "case"],
 boolean(t_exp_eq(EXP, EXP2)) -->
     exp(EXP),
     ["EQUALS"],
-    exp(EXP2).
+    boolean(EXP2).
 boolean(t_exp_and(EXP, EXP2)) -->
     exp(EXP),
     ["AND"],
-    exp(EXP2).
+    boolean(EXP2).
 boolean(t_exp_or(EXP, EXP2)) -->
     exp(EXP),
     ["OR"],
-    exp(EXP2).
+    boolean(EXP2).
 
 %Here begins the numerical comparators (<, <=, >, >=)
 %boolean(t_exp(EXP, EXP2)) -->
