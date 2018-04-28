@@ -17,12 +17,12 @@ eval_list(t_list(D),Env,FinalEnv) :-
 
 % Decleration evaluations
 eval_declaration(t_decl(I, I2),Env,FinalEnv) :-
-    eval_identifier(I,L),
+	eval_identifier(I,L),
     update(L, [], Env, Env2),
     eval_declaration(I2,Env2,FinalEnv).
 
 eval_declaration(t_decl(I),Env,FinalEnv) :-
-    eval_identifier(I, L),
+	eval_identifier(I, L),
     update(L, [], Env, FinalEnv).
 
 % Command evaluations
@@ -30,7 +30,7 @@ eval_command(t_command(I),Env,FinalEnv) :-
     eval_print(I,Env,FinalEnv).
 
 eval_command(t_command(I, I2),Env,FinalEnv) :-
-    eval_identifier(I,L),
+	eval_identifier(I,L),
     eval_boolean(I2,Env,RBool),
     update(L, RBool, Env, FinalEnv);
     eval_identifier(I,L),
@@ -39,22 +39,22 @@ eval_command(t_command(I, I2),Env,FinalEnv) :-
     eval_print(I,Env,FinalEnv), eval_command(I2,Env,FinalEnv).
 
 eval_command(t_command(I, I2, I3),Env,FinalEnv) :-
-    %eval_identifier(I,L),
+	%eval_identifier(I,L),
     %eval_boolean(I2,Env, RBool),
     %update(L, RBool, Env, Env2),
     %eval_block_command(I3,Env2,FinalEnv);
     % alt
-    eval_identifier(I,L),
+	eval_identifier(I,L),
     eval_exp(I2,Env,RExp),
     update(L, RExp, Env, Env2),
     eval_block_command(I3,Env2,FinalEnv);
     % alt
-    eval_identifier(I,L),
+	eval_identifier(I,L),
     eval_boolean(I2,Env,RBool),
     update(L, RBool, Env, Env2),
     eval_command(I3,Env2,FinalEnv);
     % Alt
-    eval_identifier(I,L),
+	eval_identifier(I,L),
     eval_exp(I2,Env,RExp),
     update(L, RExp, Env, Env2),
     eval_command(I3,Env2,FinalEnv).
@@ -66,11 +66,11 @@ eval_print(t_print(V),_,_) :-
 
 % Block Command Evaluations
 eval_block_command(t_block_cmnd(N),Env,FinalEnv) :-
-    eval_while_command(N,Env,FinalEnv);
+	eval_while_command(N,Env,FinalEnv);
     eval_if_command(N,Env,FinalEnv).
 
 eval_block_command(t_block_cmnd(N, N2),Env,FinalEnv) :-
-    eval_while_command(N,Env,Env2),
+	eval_while_command(N,Env,Env2),
     eval_command(N2,Env2,FinalEnv);
     eval_if_command(N,Env,Env2),
     eval_command(N2,Env2,FinalEnv).
@@ -78,8 +78,15 @@ eval_block_command(t_block_cmnd(N, N2),Env,FinalEnv) :-
 % While and conditional evaluation,
 % futher breaking down parse tree to commands.
 eval_while_command(t_while(X, Y),Env,FinalEnv) :-
-    eval_boolean(X,Env,Env2),
-    eval_list(Y,Env2,FinalEnv).
+    while_looper(X,Y,Env,FinalEnv).
+
+while_looper(X,Y,Env,FinalEnv) :-
+    eval_boolean(X,Env,1),
+    eval_list(Y,Env,Env2),
+    while_looper(X,Y,Env2,FinalEnv).
+
+while_looper(X,_,Env,Env) :-
+    eval_boolean(X,Env,0).
 
 eval_if_command(t_if(X, Y, Z),Env,FinalEnv) :-
     eval_boolean(X,Env,1),
@@ -91,7 +98,7 @@ eval_if_command(t_if(X, Y, Z),Env,FinalEnv) :-
 eval_boolean(t_exp_eq(EXP, EXP2),Env, Result) :-
     eval_exp(EXP,Env, RExp1),
     eval_exp(EXP2,Env, RExp2),
-    bool_eq(RExp1,RExp2,Result). 
+    bool_eq(RExp1,RExp2,Result).
 % && BOOL eval
 eval_boolean(t_exp_and(EXP, EXP2),Env, Result) :-
     eval_exp(EXP,Env, RExp1),
@@ -105,10 +112,9 @@ eval_boolean(t_exp_or(EXP, EXP2),Env, Result) :-
     bool_or(RExp1,RExp2,Result).
 
 % !(bool) BOOL eval
-eval_boolean(t_exp_not(EXP, EXP2),Env, Result) :-
-    eval_exp(EXP,Env, RExp1),
-    eval_exp(EXP2,Env, RExp2),
-    bool_neq(RExp1,RExp2,Result).
+eval_boolean(t_exp_not(Bool),Env, Result) :-
+    eval_boolean(Bool,Env,RExp1),
+    bool_not(RExp1,Result).
 
 eval_boolean(t_exp(T),Env,Result):-
     eval_exp(T,Env,Result).
@@ -120,6 +126,9 @@ bool_eq(Boo1,Boo2,0) :-
 bool_neq(Boo1,Boo2,1) :-
     Boo1 =\= Boo2.
 bool_neq(Boo,Boo,0).
+
+bool_not(0,1).
+bool_not(1,0).
 
 bool_and(1,1,1).
 bool_and(0,_,0).
@@ -168,8 +177,7 @@ eval_factor(t_factor(I),Env,Result) :-
 
 eval_identifier(t_id(L),L).
 
-eval_num(t_num(N),Result):-
-    atom_number(N,Result).
+eval_num(t_num(N),N).
 
 % Predicate takes a 'x' value to find in Env
 % once matched, returns the value of the
@@ -192,4 +200,4 @@ updateOld(Search, Val, [(Search, _)|Env1], [(Search,Val)|Env1]).
 updateOld(Search, Val, [H|Env1], [H|Env2]) :- updateOld(Search, Val, Env1, Env2).
 
 interpreter(PTokens, FinalEnv) :-
-    eval_prog(PTokens, [], FinalEnv).
+	eval_prog(PTokens, [], FinalEnv).

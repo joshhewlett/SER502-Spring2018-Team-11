@@ -120,7 +120,7 @@ command(t_command(I, B)) -->
     exp(B);
     ["Please", "reply", "with", "the", "value", "of"],
     print(I), ["."], command(B).
-    
+
 command(t_command(C, D, E)) -->
     ["Assign", "the", "boolean"],
     identifier(C),
@@ -214,7 +214,7 @@ boolean(t_exp_or(EXP, EXP2)) -->
 %    ["GREATER","THAN","OR","EQUAL","TO"],
 %    exp(EXP2).
 
-boolean(t_exp_not(EXP)) --> ["NOT"], exp(EXP).
+boolean(t_exp_not(EXP)) --> ["NOT"], boolean(EXP).
 boolean(t_exp(EXP)) --> exp(EXP).
 
 % Precedence-defined arithmetic expressions that accomodate

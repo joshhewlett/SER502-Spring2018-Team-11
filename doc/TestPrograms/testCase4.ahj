@@ -3,7 +3,7 @@ Salutations Xiangyu,
 
         Assign the integer c to the value of 5.
 
-        So long as c EQUALS 5 please
+        So long as NOT c EQUALS 5 please
             Would you mind doing the following: 
                 Assign the integer c to the value of c - 1.
             Thank you.
