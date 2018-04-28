@@ -1,6 +1,5 @@
 % Program evaluation
 eval_prog(t_prog(L),Env,FinalEnv) :-
-    Env = [],
     eval_list(L,Env,FinalEnv).
 
 % List evaluations
@@ -192,7 +191,5 @@ update(Search,Val,Env,Env2) :-
 updateOld(Search, Val, [(Search, _)|Env1], [(Search,Val)|Env1]).
 updateOld(Search, Val, [H|Env1], [H|Env2]) :- updateOld(Search, Val, Env1, Env2).
 
-
 interpreter(PTokens, FinalEnv) :-
-    eval_prog(PTokens, Output, FinalEnv),
-    print(Output), print(FinalEnv).
+    eval_prog(PTokens, [], FinalEnv).
