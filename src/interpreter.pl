@@ -82,9 +82,10 @@ eval_while_command(t_while(X, Y),Env,FinalEnv) :-
     eval_list(Y,Env2,FinalEnv).
 
 eval_if_command(t_if(X, Y, Z),Env,FinalEnv) :-
-    eval_boolean(X,Env,Env2),
-    eval_list(Y,Env2,Env3),
-    eval_list(Z,Env3,FinalEnv).
+    eval_boolean(X,Env,1),
+    eval_list(Y,Env,FinalEnv);
+    eval_boolean(X,Env,0),
+    eval_list(Z,Env,FinalEnv).
 
 % == BOOL eval =======================
 eval_boolean(t_exp_eq(EXP, EXP2),Env, Result) :-
@@ -118,8 +119,7 @@ bool_eq(Boo1,Boo2,0) :-
 
 bool_neq(Boo1,Boo2,1) :-
     Boo1 =\= Boo2.
-bool_neq(Boo1,Boo2,0) :-
-    Boo1 == Boo2.
+bool_neq(Boo,Boo,0).
 
 bool_and(1,1,1).
 bool_and(0,_,0).
