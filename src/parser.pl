@@ -223,8 +223,8 @@ boolean(t_exp(EXP)) --> exp(EXP).
 exp(t_plus(T,E)) --> term(T),["+"],exp(E).
 exp(t_minus(T,E)) --> term(T),["-"],exp(E).
 exp(t_expr(T)) --> term(T).
-exp(t_bool_true("TRUE")) --> ["TRUE"].
-exp(t_bool_false("FALSE")) --> ["FALSE"].
+exp(t_bool_true("true")) --> ["TRUE"].
+exp(t_bool_false("false")) --> ["FALSE"].
 
 %Precedence for arithmetic operations.
 term(t_mult(F,T)) --> factor(F),["*"],term(T).

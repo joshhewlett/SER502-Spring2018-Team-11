@@ -6,8 +6,8 @@ Would you mind doing the following:
 
 Create the variable flag.
 Assign the integer number 5.
-Assign the boolean flag TRUE.
-Assign the boolean flag FALSE.
+Assign the boolean flag 1.
+Assign the boolean flag 0.
 Assign the integer number 15461.
 
 Thank you.
@@ -46,9 +46,9 @@ Salutations Xiangyu,
 Would you mind doing the following:
 
 Create the variable second.
-Assign the boolean first to the value of FALSE.
+Assign the boolean first to the value of 0.
 
-Should it be the case first EQUALS FALSE please 
+Should it be the case first EQUALS 0 please 
 Would you mind doing the following:
 Assign the integer second to the value of 4*3+2*3.
 Thank you.
@@ -103,20 +103,20 @@ Would you mind doing the following:
 Assign the integer counter to the value of 1.
 Assign the integer limit to the value of 100.
 Assign the integer sum to the value of 0.
-Assign the boolean flag to the value of TRUE.
+Assign the boolean flag to the value of 1.
 
 So long as the NOT counter EQUALS limit please
 	Would you mind doing the following:
 	Should it be the case flag please
 		Would you mind doing the following: 
 		Assign the integer sum to the value of sum * 2. 
-		Assign the boolean flag to the value of FALSE.
+		Assign the boolean flag to the value of 0.
 		Thank you.
 	but should it be that NOT flag please
 	otherwise
 		Would you mind doing the following: 
 		Assign the integer sum to the value of sum + 1.
-		Assign the boolean flag to the value of TRUE.
+		Assign the boolean flag to the value of 1.
 		Thank you.
 	that is all.
 your iterations are appreciated.
