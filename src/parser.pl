@@ -222,7 +222,7 @@ boolean(EXP) --> exp(EXP).
 % since boolean can consist of expressions, and need a base case.
 exp(t_plus(T,E)) --> term(T),["+"],exp(E).
 exp(t_minus(T,E)) --> term(T),["-"],exp(E).
-exp(t_exp(T)) --> term(T).
+exp(T) --> term(T).
 exp(t_bool_true("true")) --> ["TRUE"].
 exp(t_bool_false("false")) --> ["FALSE"].
 
