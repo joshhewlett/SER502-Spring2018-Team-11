@@ -26,8 +26,8 @@ eval_declaration(t_decl(I),Env,FinalEnv) :-
     update(L, [], Env, FinalEnv).
 
 % Command evaluations
-eval_command(t_command(I),Env,FinalEnv) :-
-    eval_print(I,Env,FinalEnv).
+eval_command(t_command(I),Env,Env) :-
+    eval_print(I,Env).
 
 eval_command(t_command(I, I2),Env,FinalEnv) :-
     eval_identifier(I,L),
@@ -36,13 +36,13 @@ eval_command(t_command(I, I2),Env,FinalEnv) :-
     eval_identifier(I,L),
     eval_exp(I2,Env,RExp),
     update(L, RExp, Env, FinalEnv);
-    eval_print(I,Env,FinalEnv), eval_command(I2,Env,FinalEnv).
+    eval_print(I,Env), eval_command(I2,Env,FinalEnv).
 
 eval_command(t_command(I, I2, I3),Env,FinalEnv) :-
-    %eval_identifier(I,L),
-    %eval_boolean(I2,Env, RBool),
-    %update(L, RBool, Env, Env2),
-    %eval_block_command(I3,Env2,FinalEnv);
+    eval_identifier(I,L),
+    eval_boolean(I2,Env, RBool),
+    update(L, RBool, Env, Env2),
+    eval_block_command(I3,Env2,FinalEnv);
     % alt
     eval_identifier(I,L),
     eval_exp(I2,Env,RExp),
@@ -61,8 +61,10 @@ eval_command(t_command(I, I2, I3),Env,FinalEnv) :-
 
 % Print evaluation shall use prolog
 % print predicate
-eval_print(t_print(V),_,_) :-
-    print(V).
+eval_print(t_print(V),Env) :-
+    eval_identifier(V, Identifier),
+    lookup(Identifier, Env, Val),
+    print(Val).
 
 % Block Command Evaluations
 eval_block_command(t_block_cmnd(N),Env,FinalEnv) :-
@@ -119,7 +121,8 @@ bool_eq(Boo1,Boo2,0) :-
 
 bool_neq(Boo1,Boo2,1) :-
     Boo1 =\= Boo2.
-bool_neq(Boo,Boo,0).
+bool_neq(Boo1,Boo2,0) :-
+    Boo1 == Boo2.
 
 bool_and(1,1,1).
 bool_and(0,_,0).
@@ -168,8 +171,7 @@ eval_factor(t_factor(I),Env,Result) :-
 
 eval_identifier(t_id(L),L).
 
-eval_num(t_num(N),Result):-
-    atom_number(N,Result).
+eval_num(t_num(N),N).
 
 % Predicate takes a 'x' value to find in Env
 % once matched, returns the value of the
