@@ -215,14 +215,14 @@ boolean(t_exp_or(EXP, EXP2)) -->
 %    exp(EXP2).
 
 boolean(t_exp_not(EXP)) --> ["NOT"], boolean(EXP).
-boolean(t_exp(EXP)) --> exp(EXP).
+boolean(EXP) --> exp(EXP).
 
 % Precedence-defined arithmetic expressions that accomodate
 % order of operations. Also breaks down boolean to TRUE/FALSE
 % since boolean can consist of expressions, and need a base case.
 exp(t_plus(T,E)) --> term(T),["+"],exp(E).
 exp(t_minus(T,E)) --> term(T),["-"],exp(E).
-exp(t_expr(T)) --> term(T).
+exp(t_exp(T)) --> term(T).
 exp(t_bool_true("true")) --> ["TRUE"].
 exp(t_bool_false("false")) --> ["FALSE"].
 
