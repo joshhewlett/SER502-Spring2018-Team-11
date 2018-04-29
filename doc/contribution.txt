@@ -24,6 +24,12 @@ Josh Hewlett:
 • Created compiler bash script
 • Helped create parser.pl for tokenizing compilation file
 • Developed interpreter environment setting.
+• Compiled the tokenizer, the parser and the interpreter programs into a single
+  main program that is able to be called by the `ahj.sh` bash script
+• Did more work on the `ahj.sh` bash script to make it more reliable and updated
+  to the new structure of the `parser.pl` program
+• Helped create the interpreter
+• Bug fixes for the parser and interpreter
 
 Paul Horton:
 • Assisted in collective development of language Syntax.
