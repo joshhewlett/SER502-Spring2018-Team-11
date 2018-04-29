@@ -10,7 +10,6 @@ NC='\033[0m'
 # Absolute path of this script
 # SCRIPTPATH=$( dirname $(realpath -s $0))
 SCRIPTPATH=$AHJ_HOME
-echo "\$AHJ_HOME=$SCRIPTPATH"
 if [ ! -f $SCRIPTPATH/tokenizer.pl ]; then 
     echo -e "${RED}\$AHJ_HOME path variable not set correctly!${NC}"
     echo "Please make sure to set \$AHJ_HOME to full path of the /src directory of this project."
@@ -20,9 +19,8 @@ fi
 # Global variables
 dir='./ahjc/'
 file=''
-betterParsePrefix='betterParse_'
 keepDirFlag=false
-verboseFlag=true ### True by default for now
+verboseFlag=false ### True by default for now
 
 
 # Get flags/arguments
@@ -62,7 +60,7 @@ fi
 ### Create tmp directory and files
 
 # Create new filename for dumping new file to parse
-betterParseFile=$betterParsePrefix$file
+betterParseFile=$file".betterparse"
 
 # Logs
 if [ "$verboseFlag" = true ] ; then
@@ -96,23 +94,43 @@ if [ "$verboseFlag" = true ] ; then
 fi
 
 # Tokenize $betterParseFile and dump to $tokensFile
-parseTreeFile=$dir"parseTree.ahjt"
-PARSE_TREE=$(swipl -s $SCRIPTPATH/parser.pl $dir$betterParseFile)
-echo $PARSE_TREE > $parseTreeFile
+parseTreeFile=$dir"parseTree.ahjpt"
+$(swipl -s $SCRIPTPATH/parser.pl $dir$betterParseFile > $dir"_out") &
 
-# RESULT=$(swipl -s $SCRIPTPATH/interpreter.pl $PARSE_TREE)
-# echo -e "\nResult: \n$RESULT"
+# Wait for 2 seconds before killing program
+sleep 0.1
+kill $!
+
+# Get output
+OUTPUT=$(cat $dir"_out")
+
+# Get each program output
+
+TOKENIZER_OUTPUT=$(echo $OUTPUT | awk -F " :-:-: " '{print $1}')
+PARSE_TREE_OUTPUT=$(echo $OUTPUT | awk -F " :-:-: " '{print $2}')
+PROGRAM_OUTPUT=$(echo $OUTPUT | awk -F " :-:-: " '{print $3}')
+ERROR_MESSAGE=$(echo $OUTPUT | awk -F " :-:-: " '{print $4}')
+
+if [ ! "$ERROR_MESSAGE" = '' ] ; then
+    echo -e "${RED}Error: ${NC} Syntax error!"
+    exit 1
+fi
+
+# Write program output to files
+echo $TOKENIZER_OUTPUT > $dir$file".tokens"
+echo $PARSE_TREE_OUTPUT > $dir$file".parse"
+echo $PROGRAM_OUTPUT > $dir$file".output"
 
 # Logs
 if [ "$verboseFlag" = true ] ; then
     echo ""
-    echo -e "${GREEN}Successfully parsed program${NC}"
-    echo -e "\n${YELLOW}Parse tree: ${NC}"
-    cat $parseTreeFile
+    echo -e "${GREEN}Successfully executed program${NC}"
+    echo -e "\n${YELLOW}Tokens: ${NC}$TOKENIZER_OUTPUT\n\n"
+    echo -e "\n${YELLOW}Parse Tree: ${NC}$PARSE_TREE_OUTPUT\n\n"
 fi
 
-#Interpret
-
+echo -e "\n${YELLOW}Program output: ${NC}"
+echo -e ${PROGRAM_OUTPUT/' '/'\n'}
 
 # If keepDirFlag=true, keep the dump directory.
 # Delete if not.
