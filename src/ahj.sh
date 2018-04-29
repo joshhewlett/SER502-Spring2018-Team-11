@@ -100,6 +100,9 @@ parseTreeFile=$dir"parseTree.ahjt"
 PARSE_TREE=$(swipl -s $SCRIPTPATH/parser.pl $dir$betterParseFile)
 echo $PARSE_TREE > $parseTreeFile
 
+# RESULT=$(swipl -s $SCRIPTPATH/interpreter.pl $PARSE_TREE)
+# echo -e "\nResult: \n$RESULT"
+
 # Logs
 if [ "$verboseFlag" = true ] ; then
     echo ""
