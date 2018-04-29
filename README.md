@@ -1,6 +1,6 @@
 # ***AH-J Programming Language***
 ## SER-502 Group 11
-![Dr_Bansal](https://i.imgur.com/R5PKgmF.jpg)
+![Dr_Bansal](https://i.imgur.com/FPfKg7K.jpg)
 ---
 ## **Installing Language**
 
