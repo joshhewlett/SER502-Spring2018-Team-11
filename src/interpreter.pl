@@ -3,7 +3,7 @@ eval_prog(t_prog(L),Env,FinalEnv) :-
     eval_list(L,Env,FinalEnv).
 
 % List evaluations, comprised of either
-% declerations and block commands, declerations and commands,
+% declarations and block commands, declarations and commands,
 % or block commands proceeded by commands.
 eval_list(t_list(D, C),Env,FinalEnv) :-
     eval_declaration(D,Env,Env2),
@@ -25,7 +25,7 @@ eval_declaration(t_decl(I, I2),Env,FinalEnv) :-
     update(L, [], Env, Env2),
     eval_declaration(I2,Env2,FinalEnv).
 
-% Decleration evaluation for singular declared variable.
+% Declaration evaluation for singular declared variable.
 eval_declaration(t_decl(I),Env,FinalEnv) :-
 	eval_identifier(I, L),
     update(L, [], Env, FinalEnv).
@@ -102,7 +102,7 @@ eval_while_command(t_while(X, Y),Env,FinalEnv) :-
     while_looper(X,Y,Env,FinalEnv).
 
 % While looper evaluations boolean conditional,
-% provides local stack environment for decleration and commands,
+% provides local stack environment for declaration and commands,
 % followed by recursive call to represent iterations of loop execution.
 while_looper(X,Y,Env,FinalEnv) :-
     eval_boolean(X,Env,1),
