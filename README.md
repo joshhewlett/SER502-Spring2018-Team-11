@@ -65,16 +65,17 @@ To **run** the language, simply compile the program as follows:
 ## **System Information**
 
 The language's **compiler** and **runtime** is built for **_Linux, Windows, and Mac OS X_** platforms.
-The procedure of *tokenizing, parsing,* and *intepretting* the syntax is entirely done through Prolog.
+The procedure of *tokenizing, parsing,* and *intepreting* the syntax is entirely done through Prolog.
 
 [Josh Hewlett] Bash script does...
 
 ---
 ## **Tools Used:**
-### The following tools were used:
-* **Prolog**
-* **Bash Scripts**
-* **DCG Grammar Rules** via Prolog
+As a whole, **Prolog** is a versatile program, and therefore was the focal point of all components of the project. Using prolog allowed for the ability to tokenize, parse, and interpret custom code-as described above. 
+Using Prolog as a _tokenizer_ enabled the creation of a list that houses the breakdown of the AH-J code. This was reliant upon previously identified tokens. This generates the next functionality that Prolog supports.
+Using Prolog as a _parser_ allowed for code checking through its DCG functionality. This turns the previously tokenized list into a labeled structure. This allows for syntax checking. It also leads into the final use of Prolog in this project: the interpreter.
+Using Prolog as an _interpreter_ completed the development of a language by giving it semantics and providing semantic checking. 
+Finally, the _bash script_ executes our code ensemble to promote abstraction but also step by step texual visualization of the compilation process. 
 
 ---
 ### **YouTube video**
