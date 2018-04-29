@@ -10,7 +10,7 @@ NC='\033[0m'
 # Absolute path of this script
 # SCRIPTPATH=$( dirname $(realpath -s $0))
 SCRIPTPATH=$AHJ_HOME
-if [ ! -f $SCRIPTPATH/tokenizer.pl ]; then 
+if [ ! -f $SCRIPTPATH/parser.pl ]; then 
     echo -e "${RED}\$AHJ_HOME path variable not set correctly!${NC}"
     echo "Please make sure to set \$AHJ_HOME to full path of the /src directory of this project."
     exit 1
