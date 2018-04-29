@@ -111,6 +111,8 @@ PARSE_TREE_OUTPUT=$(echo $OUTPUT | awk -F " :-:-: " '{print $2}')
 PROGRAM_OUTPUT=$(echo $OUTPUT | awk -F " :-:-: " '{print $3}')
 ERROR_MESSAGE=$(echo $OUTPUT | awk -F " :-:-: " '{print $4}')
 
+rm $dir"_out"
+
 if [ ! "$ERROR_MESSAGE" = '' ] ; then
     echo -e "${RED}Error: ${NC} Syntax error!"
     exit 1

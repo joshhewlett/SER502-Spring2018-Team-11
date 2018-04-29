@@ -1,0 +1,1 @@
+t_prog(t_list(t_command(t_id(c),t_term(t_factor(t_num(7))),t_block_cmnd(t_while(t_exp_not(t_exp_eq(t_term(t_factor(t_id(c))),t_term(t_factor(t_num(5))))),t_list(t_command(t_id(c),t_minus(t_term(t_factor(t_id(c))),t_term(t_factor(t_num(1)))))))))))

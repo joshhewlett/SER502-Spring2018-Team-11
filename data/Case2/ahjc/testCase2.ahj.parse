@@ -1,0 +1,1 @@
+t_prog(t_list(t_decl(t_id(n)),t_command(t_id(n),t_term(t_factor(t_num(1))),t_command(t_id(n),t_plus(t_term(t_factor(t_id(n))),t_term(t_factor(t_num(3))))))))
