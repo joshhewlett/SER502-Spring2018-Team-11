@@ -80,7 +80,10 @@ eval_command(t_command(I, I2, I3),Env,FinalEnv) :-
 eval_print(t_print(V),Env) :-
     eval_identifier(V, Identifier),
     lookup(Identifier, Env, Val),
-    print(Val).
+    print(Identifier),
+    print(=),
+    print(Val),
+    nl().
 
 % Singular Block command execution comprised of 
 % while loops, or conditional statements.
