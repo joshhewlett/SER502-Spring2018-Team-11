@@ -14,7 +14,7 @@ Prolog shell from the command line with `swipl`.
 
 [linux-setup]: http://www.swi-prolog.org/build/unix.html
 
-### Then clone the repository, set the **`AHJ_HOME`** variable to source directory of project.
+Then clone the repository, set the **`AHJ_HOME`** variable to source directory of project.
 
     $ export AHJ_HOME=[repo root]/src
 
