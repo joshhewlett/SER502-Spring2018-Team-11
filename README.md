@@ -1,5 +1,5 @@
-# SER-502 Group 11
-## ***AH-J Programming Language, A Turing Complete Language***
+# ***AH-J Programming Language***
+## SER-502 Group 11
 
 ---
 ## **Installing Language**
@@ -21,9 +21,9 @@ Prolog shell from the command line with `swipl`.
 ---
 ## **Building & Running Language**
 
-### **Syntax Guidelines:**
+### Syntax Guidelines:
 * #### [Language BNF](https://drive.google.com/open?id=1qJhU3IedlJXfJBMdjmeciZGR_OXEmlq-dDAnwkuDke8 ("AH-J BCF"))
-### **Example Program Excerpt:**
+### Example Program Excerpt:
 ```
 Salutations Xiangyu, 
     Would you mind doing the following:
@@ -72,7 +72,7 @@ The procedure of *tokenizing, parsing,* and *intepretting* the syntax is entirel
 
 ---
 ## **Tools Used:**
-#### The following tools were used:
+### The following tools were used:
 * **Prolog**
 * **Bash Scripts**
 * **DCG Grammar Rules** via Prolog
