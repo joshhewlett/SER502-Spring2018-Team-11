@@ -152,7 +152,7 @@ eval_exp(t_minus(T,E),Env,Result) :-
     eval_exp(E,Env,RExp),
     Result is RTerm - RExp.
 
-eval_exp(t_exp(T),Env,Result) :- eval_term(T,Env,Result).
+eval_exp(T,Env,Result) :- eval_term(T,Env,Result).
 
 eval_exp(t_bool_true(_),_,1).
 eval_exp(t_bool_false(_),_,0).
