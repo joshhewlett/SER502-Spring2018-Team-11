@@ -82,7 +82,7 @@ Finally, the _bash script_ executes our code ensemble to promote abstraction but
 ---
 ### **YouTube video**
 #### **Project overview**
-[![FullPortalTutorial](https://img.youtube.com/vi/Z5AmqMuNi08/0.jpg)](https://www.youtube.com/watch?v=Z5AmqMuNi08)
+[![FullPortalTutorial](https://img.youtube.com/vi/RKvrfUexI3I/0.jpg)](https://www.youtube.com/watch?v=RKvrfUexI3I)
 
 ---
 ## **Authors**
