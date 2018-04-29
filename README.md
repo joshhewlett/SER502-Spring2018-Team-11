@@ -51,7 +51,6 @@ Sincerely, Ajay Bansal
 
 ### **Compiler/Runtime:**
 
-##### ONE LINE of bash script that builds the compiler and ONE LINE that runs the runtime.
 
 To get list of **available actions**, run the following command:
 
