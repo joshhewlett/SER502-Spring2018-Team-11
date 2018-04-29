@@ -4,6 +4,9 @@ Alireza Bahremand:
 • Worked on DCG parser for conditional and while loops. Made revisions to syntax and fixed programmatic errors.
 • Wrote additional test cases.
 • Made revisions to syntax, fixed left recursive bugs with conditionals, booleans, declarations, and loops.
+• Created edge-case testsfor parsing and interpreter. 
+• Assissted in development of interpreter for extracting parse tree information.
+• Fixed bugs with parser.
 
 Cecilia LaPlace:
 • Assisted in collective development of language Syntax.
@@ -12,6 +15,7 @@ Cecilia LaPlace:
 • Created test cases to test DCG
 • Creating and revising sample programs
 • Fixed bugs with parser for identifiers, and expressions.
+• Bug fixes for interpreter and parser.
 
 
 Josh Hewlett:
@@ -19,6 +23,7 @@ Josh Hewlett:
 • Assisted in collective effort of Milestone 2 write-up.
 • Created compiler bash script
 • Helped create parser.pl for tokenizing compilation file
+• Developed interpreter environment setting.
 
 Paul Horton:
 • Assisted in collective development of language Syntax.
@@ -26,3 +31,5 @@ Paul Horton:
 • Created template for executable prolog files via shell script
 • Assisted in effort to create tokenizer
 • Created parser.pl DCG for any length lowercase character identifiers and integers.
+• Developed interpreter environment capabilities.
+• Bug fixes for interpreter and parser.
