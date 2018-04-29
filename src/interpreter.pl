@@ -85,7 +85,7 @@ eval_print(t_print(V),Env) :-
     print(Val),
     nl().
 
-% Singular Block command execution comprised of 
+% Singular Block command execution comprised of
 % while loops, or conditional statements.
 eval_block_command(t_block_cmnd(N),Env,FinalEnv) :-
 	eval_while_command(N,Env,FinalEnv);
@@ -117,7 +117,7 @@ while_looper(X,_,Env,Env) :-
     eval_boolean(X,Env,0).
 
 % Conditional statement evaluation comprised of boolean evaluation for truth,
-% conditional evaluation for false execution, both including a list for 
+% conditional evaluation for false execution, both including a list for
 % block execution of code.
 eval_if_command(t_if(X, Y, Z),Env,FinalEnv) :-
     eval_boolean(X,Env,1),
@@ -219,7 +219,8 @@ eval_factor(t_factor(I),Env,Result) :-
 eval_identifier(t_id(L),L).
 
 % Return variable number using uniformity.
-eval_num(t_num(N),N).
+eval_num(t_num(N),N) :- integer(N).
+eval_num(t_num(N),M) :- string(N), atom_number(N,M).
 
 % Predicate takes a 'x' value to find in Env
 % once matched, returns the value of the
