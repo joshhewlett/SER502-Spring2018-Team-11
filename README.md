@@ -91,4 +91,4 @@ The procedure of *tokenizing, parsing,* and *intepretting* the syntax is entirel
 ### **License**
 
 Copyright © 2018,
-Released under the [MIT license](LICENSE).
+Released under the MIT license.
