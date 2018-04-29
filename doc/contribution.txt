@@ -7,6 +7,9 @@ Alireza Bahremand:
 • Created edge-case testsfor parsing and interpreter. 
 • Assissted in development of interpreter for extracting parse tree information.
 • Fixed bugs with parser.
+• Worked on screenshots and samples in the document
+• Introduced the program in the demo
+• Edited the video.
 
 Cecilia LaPlace:
 • Assisted in collective development of language Syntax.
@@ -16,6 +19,9 @@ Cecilia LaPlace:
 • Creating and revising sample programs
 • Fixed bugs with parser for identifiers, and expressions.
 • Bug fixes for interpreter and parser.
+• Fixed the grammar on the syntax
+• Worked on the structure, grammar, and overall quality of the document
+• Demonstrated the test cases in the demo.
 
 
 Josh Hewlett:
@@ -30,6 +36,9 @@ Josh Hewlett:
   to the new structure of the `parser.pl` program
 • Helped create the interpreter
 • Bug fixes for the parser and interpreter
+• Worked on the automation of the compiler
+• Worked on integration of the interpreter and parser
+• Demonstrated the installation of the program.
 
 Paul Horton:
 • Assisted in collective development of language Syntax.
@@ -39,3 +48,5 @@ Paul Horton:
 • Created parser.pl DCG for any length lowercase character identifiers and integers.
 • Developed interpreter environment capabilities.
 • Bug fixes for interpreter and parser.
+• Worked on integration of the interpreter and parser
+• Demonstrated the interpreter's under the hood functionality. 
