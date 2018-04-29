@@ -17,11 +17,14 @@ main :-
 	% Get ASCII
 	convert_to_ascii(Tokens, [], AsciiL),
 	reverse_list_of_lists(AsciiL, [], CorrectAscii),
+    write(CorrectAscii),
+    write(' :-:-: '),
 
 	% PARSER CALLS
     program(ParseTree, CorrectAscii, []),
 
     write(ParseTree),
+    write(' :-:-: '),
     % Interpreter
     interpreter(ParseTree, FinalEnv),
 
@@ -196,14 +199,6 @@ if_command(t_if(X, Y, Z)) --> ["Should", "it", "be", "the", "case"],
 boolean(t_exp_eq(EXP, EXP2)) -->
     exp(EXP),
     ["EQUALS"],
-    boolean(EXP2).
-boolean(t_exp_and(EXP, EXP2)) -->
-    exp(EXP),
-    ["AND"],
-    boolean(EXP2).
-boolean(t_exp_or(EXP, EXP2)) -->
-    exp(EXP),
-    ["OR"],
     boolean(EXP2).
 
 %Here begins the numerical comparators (<, <=, >, >=)
