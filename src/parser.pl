@@ -74,6 +74,7 @@ reverse_list([H|T], ResultSoFar, Result) :-
 % ================== PARSER ====================== %
 % ================================================ %
 
+% This identifiers the start, body, and end of our program.
 program(t_prog(K)) --> ["Salutations", "Xiangyu,"],
     list(K),
     ["Sincerely,", "Ajay", "Bansal"].
@@ -103,12 +104,13 @@ declaration(t_decl(I, I2)) -->
 declaration(t_decl(I)) -->
     ["Create", "the", "variable"], identifier(I), ["."].
 
-% Assignment of boolean expression expects a identifier var
-% and a boolean value.
-% %Print command + assoc. print breakdown
+% This identifies the print command and the associated call. 
 command(t_command(V)) --> ["Please", "reply", "with",
  "the", "value", "of"], print(V).
 
+
+% Assignment and printing of boolean expression expects an
+%identifier var and a boolean value.
 command(t_command(I, B)) -->
     ["Assign", "the", "boolean"],
     identifier(I),
@@ -121,6 +123,8 @@ command(t_command(I, B)) -->
     ["Please", "reply", "with", "the", "value", "of"],
     print(I), ["."], command(B).
 
+% This assigns/prints a boolean expression if it is part
+% of a block command.
 command(t_command(C, D, E)) -->
     ["Assign", "the", "boolean"],
     identifier(C),
@@ -139,8 +143,8 @@ command(t_command(C, D, E)) -->
     ["to", "the", "value", "of"],
     exp(D), ["."], command(E).
 
+% This identifies the variable to print.
 print(t_print(V)) --> identifier(V).
-
 
 
 % Command can be comprised of a while loop, or conditional check.
@@ -214,6 +218,7 @@ boolean(t_exp_or(EXP, EXP2)) -->
 %    ["GREATER","THAN","OR","EQUAL","TO"],
 %    exp(EXP2).
 
+% Here are the remaining possible boolean operators
 boolean(t_exp_not(EXP)) --> ["NOT"], boolean(EXP).
 boolean(EXP) --> exp(EXP).
 
@@ -251,6 +256,8 @@ num(t_num(L)) --> [L], {
     maplist(=(digit), Lowers),
     maplist(char_type, Cs, Lowers)}.
 
+% These are used with identifier values of 
+% single character length.
 letter(a) --> ["a"].
 letter(b) --> ["b"].
 letter(c) --> ["c"].
@@ -278,7 +285,8 @@ letter(x) --> ["x"].
 letter(y) --> ["y"].
 letter(z) --> ["z"].
 
-
+% These are used with integer values of
+% single character length.
 number(t_num(0)) --> ["0"].
 number(t_num(1)) --> ["1"].
 number(t_num(2)) --> ["2"].
