@@ -13,7 +13,7 @@ Prolog shell from the command line with `swipl`.
 
 [linux-setup]: http://www.swi-prolog.org/build/unix.html
 
-Then clone the repository, set the **`AHJ_HOME`** variable to source directory of project.
+Then clone the repository, set the **`AHJ_HOME`** variable to `/src` directory of project.
 
     $ export AHJ_HOME=[repo root]/src
 
@@ -53,20 +53,20 @@ Sincerely, Ajay Bansal
 
 To get list of **available actions**, run the following command:
 
-        ahj -h
+        $ $AHJ_HOME/ahj.sh -h
 
 To **run** the language, simply compile the program as follows:
     
-        ahj -f fileName.ahj
+        $ $AHJ_HOME/ahj.sh -f fileName.ahj
 
 ---
 
 ## **System Information**
 
-The language's **compiler** and **runtime** is built for **_Linux, Windows, and Mac OS X_** platforms.
+The language's **compiler** and **runtime** is built for **_Linux, and Mac OS X_** platforms.
 The procedure of *tokenizing, parsing,* and *intepreting* the syntax is entirely done through Prolog.
 
-[Josh Hewlett] Bash script does...
+The main `ahj.sh` bash script converts the program to a copy of it with spaces between any words and periods. This is then fed directly into the main `parser.pl` prolog program that tokenizes, parses and interprets the program. 
 
 ---
 ## **Tools Used:**

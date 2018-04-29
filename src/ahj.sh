@@ -99,7 +99,7 @@ $(swipl -s $SCRIPTPATH/parser.pl $dir$betterParseFile > $dir"_out") &
 
 # Wait for 2 seconds before killing program
 sleep 0.1
-kill $!
+kill -9 $!
 
 # Get output
 OUTPUT=$(cat $dir"_out")
